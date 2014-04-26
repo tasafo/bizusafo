@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Story do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "Dados válidos" do
+    it { should_not allow_value("nao é uma url").for :url }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:url) }
+  end
 end

@@ -1,4 +1,10 @@
 <h1>BizuSafo</h1>
-<p><%= link_to "Fabio Aguiar fala de Story Mapping no HUB 728", "http://hub728.com.br" %></p>
-<p><%= link_to "Começou mais um Agilidade em Ação", "http://hub728.com.br/events" %></p>
-<p><%= link_to "Fotos do evento no HUB 728", "http://hub728.com.br/pictures" %></p>
+<p> <%= link_to "Novo Bizu", new_story_path%> </p>
+
+<% @stories.each do |story|%>
+    <p>
+      <%= link_to story.description, story.url %>
+      <span><%= story.created_at %></span>
+    </p>
+
+<% end %>

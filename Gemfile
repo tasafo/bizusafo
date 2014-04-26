@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :production do
