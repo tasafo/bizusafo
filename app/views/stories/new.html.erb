@@ -1,9 +1,12 @@
-<h1>Stories#new</h1>
-<%= form_for @story do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit "bizuuuu" %>
+<%= form_for @story, html: {class: "form-signin"} do |f| %>
+  <legend>Novo Bizu!</legend>
+  <div class="form-group">
+    <%= f.label "URL" %>
+    <%= f.text_field :url, class: "form-control", placeholder: "URL do Bizu!" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Descrição" %>
+    <%= f.text_area :description, rows: 7, cols: 15, class: "form-control", placeholder: "Deixe seu Bizuuuuuuu!" %>
+  </div>
+  <button type="submit" class="btn btn-default btn-block">Bizuuuu!</button>
 <% end %>

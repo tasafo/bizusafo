@@ -1,10 +1,2 @@
-<h1>BizuSafo</h1>
-<p> <%= link_to "Novo Bizu", new_story_path%> </p>
-
-<% @stories.each do |story|%>
-    <p>
-      <%= link_to story.description, story.url %>
-      <span><%= story.created_at %></span>
-    </p>
-
-<% end %>
+<p> <%= link_to "Publicar Novo Bizuuu", new_story_path, class: "btn btn-default" %> </p>
+<%= render partial: "story", collection: @stories %>

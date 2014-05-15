@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426142412) do
+ActiveRecord::Schema.define(version: 20140515222518) do
 
   create_table "stories", force: true do |t|
-    t.string   "description"
+    t.text     "description"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
