@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @stories = Story.all
+    @stories = Story.timeline
   end
 end
