@@ -1,10 +1,13 @@
 class StoriesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def new
-    @story = Story.new
+    @story = current_user.stories.build
   end
 
   def create
-    @story = Story.new story_params
+    @story = current_user.stories.build story_params
 
     if @story.save
       redirect_to root_path

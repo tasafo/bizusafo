@@ -4,6 +4,8 @@ class Story < ActiveRecord::Base
 
   scope :timeline, -> { order(created_at: :desc) }
 
+  belongs_to :user
+
   def created_date
     created_at.strftime("%d/%m/%Y - %H:%M")
   end
