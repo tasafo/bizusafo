@@ -12,29 +12,3 @@
  *= require bootstrap
  *= require_tree .
  */
-
-@font-face {
-  font-family: 'PlayfairDisplaySC';
-  src: url('PlayfairDisplaySC-Regular.ttf');
-  src: url('PlayfairDisplaySC-Regular.ttf') format('truetype');
-}
-
-.title-font {
-  font-family: 'PlayfairDisplaySC', cursive;
-  font-size: 48px;
-}
-
-.link_title a:link, a:visited, a:hover, a:active{
-  text-decoration: none;
-  color: #000000
-}
-
-.sub_title {
-  font-family: 'PlayfairDisplaySC', cursive;
-  font-size: 28px;
-}
-
-.user-photo {
-  width: 24px;
-  height: 24px;
-}
