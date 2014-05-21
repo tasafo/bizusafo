@@ -33,3 +33,8 @@
   font-family: 'PlayfairDisplaySC', cursive;
   font-size: 28px;
 }
+
+.user-photo {
+  width: 24px;
+  height: 24px;
+}
