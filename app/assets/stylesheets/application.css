@@ -15,8 +15,8 @@
 
 @font-face {
   font-family: 'PlayfairDisplaySC-Regular';
-  src: url('PlayfairDisplaySC-Regular.ttf');
-  src: url('PlayfairDisplaySC-Regular.ttf') format('truetype');
+  src: url('/assets/PlayfairDisplaySC-Regular.ttf');
+  src: url('/assets/PlayfairDisplaySC-Regular.ttf') format('truetype');
 }
 
 .title-font {
