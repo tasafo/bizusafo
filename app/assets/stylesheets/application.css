@@ -29,6 +29,7 @@
   color: #000000
 }
 
-.title-margin {
-  margin: 30px 0 35px 0;
+.sub_title {
+  font-family: 'PlayfairDisplaySC-Regular', cursive;
+  font-size: 28px;
 }
