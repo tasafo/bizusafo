@@ -14,12 +14,24 @@
 
 .link_title a:link, a:visited, a:hover, a:active{
   text-decoration: none;
-  color: #000000
+}
+
+.link_title a:visited, a:hover, a:active{
+  color: #000000;
 }
 
 .sub_title {
   font-family: 'PlayfairDisplaySC', cursive;
   font-size: 28px;
+}
+
+.user-photo {
+  width: 24px;
+  height: 24px;
+}
+
+.links-helper {
+  margin-top: 18px;
 }
 
 .story-container {
@@ -55,9 +67,4 @@
 
 .menu-btn-actions {
   margin-bottom: 20px;
-}
-
-.user-photo {
-  width: 24px;
-  height: 24px;
 }
