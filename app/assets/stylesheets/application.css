@@ -14,13 +14,13 @@
  */
 
 @font-face {
-  font-family: 'PlayfairDisplaySC-Regular';
-  src: url('/assets/PlayfairDisplaySC-Regular.ttf');
-  src: url('/assets/PlayfairDisplaySC-Regular.ttf') format('truetype');
+  font-family: 'PlayfairDisplaySC';
+  src: url('PlayfairDisplaySC-Regular.ttf');
+  src: url('PlayfairDisplaySC-Regular.ttf') format('truetype');
 }
 
 .title-font {
-  font-family: 'PlayfairDisplaySC-Regular', cursive;
+  font-family: 'PlayfairDisplaySC', cursive;
   font-size: 48px;
 }
 
@@ -30,6 +30,6 @@
 }
 
 .sub_title {
-  font-family: 'PlayfairDisplaySC-Regular', cursive;
+  font-family: 'PlayfairDisplaySC', cursive;
   font-size: 28px;
 }
