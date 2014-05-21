@@ -13,7 +13,22 @@
  *= require_tree .
  */
 
-.logo_title {
-  font-family: 'Londrina Shadow', cursive;
+@font-face {
+  font-family: 'PlayfairDisplaySC-Regular';
+  src: url('PlayfairDisplaySC-Regular.ttf');
+  src: url('PlayfairDisplaySC-Regular.ttf') format('truetype');
+}
+
+.title-font {
+  font-family: 'PlayfairDisplaySC-Regular', cursive;
   font-size: 48px;
+}
+
+.link_title a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+  color: #000000
+}
+
+.title-margin {
+  margin: 30px 0 35px 0;
 }

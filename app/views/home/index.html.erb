@@ -4,7 +4,7 @@
       Olá <strong><%= current_user.username %></strong>!
     </div>
     <p>
-      <%= link_to "Publicar Novo Bizuuu!", new_user_story_path(current_user), class: "btn btn-default" %>
+      <%= link_to "Novo Bizuuu!", new_user_story_path(current_user), class: "btn btn-default" %>
       <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
     </p>
   <% else %>
