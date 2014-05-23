@@ -16,7 +16,19 @@ class StoriesController < ApplicationController
     end
   end
 
+  def positive
+    get_story.ratings.create :user => current_user, :positive => true
+  end
+
+  def negative
+    get_story.ratings.create :user => current_user, :positive => false
+  end
+
   private
+
+  def get_story
+    @story = Story.find(params[:story_id])
+  end
 
   def story_params
     params.require(:story).permit([:description, :url])

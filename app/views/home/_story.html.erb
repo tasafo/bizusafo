@@ -4,10 +4,19 @@
       <%= link_to story.description, story.url %>
     </p>
   </div>
-  <div class="time-container">
-    <p>
-      <%= image_tag avatar_url(story.user), class: "user-photo" %>
-      <%= story.user.username %> <strong>compartilhou em</strong> <%= story.created_date %>
-    </p>
+  <div>
+    <div class="col-xs-6">
+      <div id="story-votes-<%=story.id%>" class="story-ratings">
+        <%= render partial: "ratings", locals: {story: story} %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="time-container">
+        <p>
+          <%= image_tag avatar_url(story.user), class: "user-photo" %>
+          <%= story.user.username %> <strong>compartilhou em</strong> <%= story.created_date %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
