@@ -16,6 +16,27 @@ class StoriesController < ApplicationController
     end
   end
 
+  def edit
+    @story = current_user.stories.find(params[:id])
+  end
+
+  def update
+    @story = current_user.stories.find(params[:id])
+
+    if @story.update_attributes story_params
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @story = current_user.stories.find(params[:id])
+    @story.destroy
+
+    redirect_to root_path
+  end
+
   def positive
     get_story.ratings.create :user => current_user, :positive => true
   end

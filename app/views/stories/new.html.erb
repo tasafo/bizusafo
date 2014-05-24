@@ -1,12 +1,5 @@
-<%= form_for @story, url: user_stories_path, html: {class: "form-signin"} do |f| %>
+<%= form_for [current_user, @story], html: {class: "form-signin"} do |f| %>
   <legend>Novo Bizu!</legend>
-  <div class="form-group">
-    <%= f.label "URL" %>
-    <%= f.text_field :url, class: "form-control", placeholder: "URL do Bizu!" %>
-  </div>
-  <div class="form-group">
-    <%= f.label "Descrição" %>
-    <%= f.text_area :description, rows: 7, cols: 15, class: "form-control", placeholder: "Deixe seu Bizuuuuuuu!" %>
-  </div>
+  <%= render partial: "form", locals: {f: f, story: @story} %>
   <button type="submit" class="btn btn-default btn-block">Bizuuuu!</button>
 <% end %>

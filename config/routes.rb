@@ -3,7 +3,7 @@ Bizusafo::Application.routes.draw do
   devise_for :users
 
   resources :users, only: [:none] do
-    resources :stories, only: [:new, :create]
+    resources :stories
   end
 
   resources :stories, only: [:none] do
