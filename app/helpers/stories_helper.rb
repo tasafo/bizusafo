@@ -16,9 +16,9 @@ module StoriesHelper
   end
 
   def positive_ratings_url(story)
-    return "#" unless current_user
+    return "#" unless user_signed_in?
 
-    votes = Rating.has_votes_for current_user, "Story"
+    votes = story.ratings.has_votes_for current_user, "Story"
 
     return story_positive_path(story) if story.user != current_user and votes.empty?
 
@@ -26,9 +26,9 @@ module StoriesHelper
   end
 
   def negative_ratings_url(story)
-    return "#" unless current_user
+    return "#" unless user_signed_in?
 
-    votes = Rating.has_votes_for current_user, "Story"
+    votes = story.ratings.has_votes_for current_user, "Story"
 
     return story_negative_path(story) if story.user != current_user and votes.empty?
 
