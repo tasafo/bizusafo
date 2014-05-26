@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 "pt-BR":
+  errors:
+    messages:
+      not_saved: "Não foi salvo."
   activerecord:
     models:
       user:
@@ -32,3 +35,16 @@
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
         remember_me: "Lembre-me"
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "não pode ficar em branco."
+            password:
+              too_short: "deve conter ao menos 8 caractéres."
+              blank: "não pode ficar em branco."
+            password_confirmation:
+              confirmation: "inválida."
+            email:
+              blank: "não pode ficar em branco."
