@@ -39,4 +39,17 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+
+  ##
+  # Facilita encontrar traduções
+  # esquecidas.
+  ##
+  config.before(:all, type: :model) do
+    @_i18n_exception_handler = I18n.exception_handler
+    I18n.exception_handler = lambda { |*args| raise args.first.to_s }
+  end
+  config.after(:all, type: :model) do
+    I18n.exception_handler = @_i18n_exception_handler
+  end
 end
