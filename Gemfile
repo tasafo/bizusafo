@@ -32,8 +32,11 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails' # needs to be a dev dep to enable rake tasks
+end
+
 group :test do
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
 
