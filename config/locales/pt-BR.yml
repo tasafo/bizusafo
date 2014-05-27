@@ -23,6 +23,11 @@
   errors:
     messages:
       not_saved: "Não foi salvo."
+
+  time:
+    formats:
+      default: ! '%d/%m/%Y - %H:%M'
+
   activerecord:
     models:
       user:

@@ -14,7 +14,7 @@
       <div class="time-container">
         <p>
           <%= image_tag avatar_url(story.user), class: "user-photo" %>
-          <%= story.user.username %> <strong>compartilhou em</strong> <%= story.created_date %>
+          <%= story.user.username %> <strong>compartilhou em</strong> <%= l story.created_at %>
           <% if story.user == current_user %>
             |
             <%= link_to "editar", edit_user_story_path(current_user, story) %>
