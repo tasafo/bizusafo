@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require stories
 //= require turbolinks
 //= require bootstrap
-//= require_tree .

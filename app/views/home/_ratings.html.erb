@@ -1,3 +1,9 @@
-<span class="positive-votes"><%= link_to positive_votes_count(story), positive_ratings_url(story), remote: true, method: :put %></span>
+<span class="positive-votes">
+  <%= link_to positive_votes_count(story), positive_ratings_url(story), "data-count" => story.ratings.positive.count %>
+</span>
+
 <span class="votes-separator">|</span>
-<span class="negative-votes"><%= link_to negative_votes_count(story), negative_ratings_url(story), remote: true, method: :put %></span>
+
+<span class="negative-votes">
+  <%= link_to negative_votes_count(story), negative_ratings_url(story), "data-count" => story.ratings.negative.count %>
+</span>
