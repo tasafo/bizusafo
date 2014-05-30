@@ -1,4 +1,5 @@
 class StoriesController < ApplicationController
+  respond_to :html, :json
 
   before_action :authenticate_user!
 
@@ -38,11 +39,15 @@ class StoriesController < ApplicationController
   end
 
   def positive
-    get_story.ratings.create :user => current_user, :positive => true
+    if get_story.ratings.create(:user => current_user, :positive => true)
+      render json: { success: true }
+    end
   end
 
   def negative
-    get_story.ratings.create :user => current_user, :positive => false
+    if get_story.ratings.create :user => current_user, :positive => false
+      render json: { success: true }
+    end
   end
 
   private

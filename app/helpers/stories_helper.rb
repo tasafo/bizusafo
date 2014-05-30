@@ -25,6 +25,11 @@ module StoriesHelper
     "#"
   end
 
+  def has_votes_current_user(story)
+    votes = story.ratings.has_votes_for current_user, "Story"
+    votes.present?
+  end
+
   def negative_ratings_url(story)
     return "#" unless user_signed_in?
 
