@@ -1,3 +1,4 @@
 # Notícias da Comunidade
 
-Site em [http://bizusafo.com.br]()
+Site em [bizusafo.com.br](http://bizusafo.com.br)
+
