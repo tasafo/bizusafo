@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   respond_to :html, :json
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
 
   def show
     @story = Story.find(params[:id])
