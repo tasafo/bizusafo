@@ -1,15 +1,12 @@
 Bizusafo::Application.routes.draw do
-
   devise_for :users
 
-  resources :users, only: [:none] do
-    resources :stories
-  end
-
-  resources :stories, only: [:none] do
+  resources :stories do
     put :positive
     put :negative
   end
+
+  resources :comments
 
   root "home#index"
 end

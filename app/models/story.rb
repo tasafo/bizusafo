@@ -6,4 +6,5 @@ class Story < ActiveRecord::Base
 
   belongs_to :user
   has_many :ratings, as: :rateable
+  has_many :comments, as: :commentable
 end

@@ -1,4 +1,4 @@
-<%= form_for [current_user, @story], html: {class: "form-signin"} do |f| %>
+<%= form_for @story, html: {class: "form-signin"} do |f| %>
   <legend>Novo Bizu!</legend>
   <%= render partial: "form", locals: {f: f, story: @story} %>
   <button type="submit" class="btn btn-default btn-block">Bizuuuu!</button>

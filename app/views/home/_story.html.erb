@@ -3,6 +3,9 @@
     <p>
       <%= link_to story.description, story.url, target: "_blank" %>
     </p>
+    <aside>
+      <%= link_to "#{story.comments.count} Comentários", story %>
+    </aside>
   </div>
   <div>
     <div class="col-xs-6">
@@ -17,7 +20,7 @@
           <%= story.user.username %> <strong>em</strong> <%= l story.created_at %>
           <% if story.user == current_user %>
             |
-            <%= link_to "editar", edit_user_story_path(current_user, story) %>
+            <%= link_to "editar", edit_story_path(story) %>
           <% end %>
         </p>
       </div>

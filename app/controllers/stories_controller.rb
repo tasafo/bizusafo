@@ -3,6 +3,10 @@ class StoriesController < ApplicationController
 
   before_action :authenticate_user!
 
+  def show
+    @story = Story.find(params[:id])
+  end
+
   def new
     @story = current_user.stories.build
   end

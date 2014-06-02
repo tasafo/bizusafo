@@ -1,0 +1,24 @@
+<div class="new-comment-container">
+  <%= form_for Comment.new do |f| %>
+    <div class="form-group">
+      <%= f.text_area :text, class: "form-control", placeholder: "Comente aqui" %>
+    </div>
+    <%= f.hidden_field :commentable_type, value: "Story" %>
+    <%= f.hidden_field :commentable_id, value: @story.id %>
+    <button type="submit" class="btn btn-default btn-block">Comentar</button>
+  <% end %>
+</div>
+
+<div class="comments-container">
+  <% @story.comments.each do |comment| %>
+    <div class="comment-container">
+      <aside>
+        <%= image_tag avatar_url(comment.author), class: "user-photo" %>
+      </aside>
+      <p>
+        <%= comment.username %> <strong>em</strong> <%= l comment.created_at %><br />
+        <%= comment.text %>
+      </p>
+    </div>
+  <% end %>
+</div>
