@@ -1,17 +1,21 @@
 <div class="story-container">
-  <div class="lead">
-    <p>
-      <%= link_to story.description, story.url, target: "_blank" %>
-    </p>
-    <aside>
-      <%= link_to "#{story.comments.count} Comentários", story %>
-    </aside>
-  </div>
-  <div>
-    <div class="col-xs-6">
+  <div class="row story-description-ratings">
+    <div class="col-xs-9">
+      <div class="lead">
+        <p>
+          <%= link_to story.description, story.url, target: "_blank" %>
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-3">
       <div id="story-votes-<%=story.id%>" class="story-ratings">
         <%= render partial: "ratings", locals: {story: story} %>
       </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-xs-6 comments-status">
+      <p><%= link_to "#{story.comments.count} Comentários", story %></p>
     </div>
     <div class="col-xs-6">
       <div class="time-container">

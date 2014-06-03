@@ -1,5 +1,5 @@
 div.comment-container {
-  margin: 10px 0px;
+  margin: 20px 0px;
   padding: 7px;
   border: 1px solid #ccc;
  -webkit-border-radius: 5px;
@@ -8,11 +8,16 @@ div.comment-container {
 }
 
 div.comment-container aside {
-  vertical-align: top;
-  width: 30px;
+  vertical-align: middle;
+  width: 20px;
   float: left;
 }
 
 div.comment-container p {
   margin-left: 30px;
+}
+
+div.author-comment-box {
+  margin-bottom: 30px;
+  font-size: 12px;
 }
