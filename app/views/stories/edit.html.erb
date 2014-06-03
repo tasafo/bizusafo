@@ -1,6 +1,6 @@
-<%= form_for [current_user, @story], html: {class: "form-signin"} do |f| %>
+<%= form_for @story, html: {class: "form-signin"} do |f| %>
   <legend>Editar Bizu!</legend>
   <%= render partial: "form", locals: {f: f, story: @story} %>
   <button type="submit" class="btn btn-default btn-block">Alterar Bizuuuu!</button>
-  <%= link_to "Apagar Bizuuuu!", user_story_path(current_user, @story), class: "btn btn-danger btn-block", method: :delete, data: { confirm: "Tem certeza que deseja apagar?" } %>
+  <%= link_to "Apagar Bizuuuu!", @story, class: "btn btn-danger btn-block", method: :delete, data: { confirm: "Tem certeza que deseja apagar?" } %>
 <% end %>

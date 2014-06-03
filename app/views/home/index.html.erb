@@ -1,15 +1,1 @@
-<div class="menu-btn-actions">
-  <% if user_signed_in? %>
-    <div class="menu-btn-actions">
-      <p>Olá <strong><%= current_user.username %></strong>!</p>
-      <div class="menu-links-actions">
-        <%= link_to "Novo Bizuuu!", new_user_story_path(current_user), class: "btn btn-default" %>
-        <%= link_to "Perfil", edit_user_registration_path, class: "btn btn-default" %>
-        <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
-      </div>
-    </div>
-  <% else %>
-    <%= link_to "Entrar", new_user_session_path, class: "btn btn-default" %>
-  <% end %>
-</div>
 <%= render partial: "story", collection: @stories %>

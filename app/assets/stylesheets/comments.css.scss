@@ -1,0 +1,18 @@
+div.comment-container {
+  margin: 10px 0px;
+  padding: 7px;
+  border: 1px solid #ccc;
+ -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+         border-radius: 5px;
+}
+
+div.comment-container aside {
+  vertical-align: top;
+  width: 30px;
+  float: left;
+}
+
+div.comment-container p {
+  margin-left: 30px;
+}
