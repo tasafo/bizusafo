@@ -51,9 +51,14 @@
   margin-bottom: 15px;
 }
 
+.story-container .comments-status p {
+  font-size:13px ;
+  margin-left: -15px;
+  color: gray;
+}
 
-.story-container .lead aside {
-  font-size:12px ;
+.story-container .comments-status a {
+  color: gray;
 }
 
 .form-signin {
@@ -86,6 +91,16 @@
 .negative-votes a {
   margin-left: 10px;
   color: red;
+}
+
+.story-description-ratings {
+  margin-bottom: 25px;
+}
+
+.story-ratings {
+  margin-right: 13px;
+  float: right;
+  font-size: 23px;
 }
 
 .votes-separator {

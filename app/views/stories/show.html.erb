@@ -1,14 +1,21 @@
 <div class="story-container">
-  <div class="lead">
-    <p>
-      <%= link_to @story.description, @story.url, target: "_blank" %>
-    </p>
-  </div>
-  <div>
-    <div class="col-xs-6">
+  <div class="row story-description-ratings">
+    <div class="col-xs-9">
+      <div class="lead">
+        <p>
+          <%= link_to @story.description, @story.url, target: "_blank" %>
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-3">
       <div id="story-votes-<%=@story.id%>" class="story-ratings">
         <%= render partial: "home/ratings", locals: {story: @story} %>
       </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-xs-6 comments-status">
+      <p><%= "#{@story.comments.count} Comentários" %></p>
     </div>
     <div class="col-xs-6">
       <div class="time-container">
@@ -25,9 +32,9 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-6">  
+    <div class="col-xs-6">
       <hr>
       <%= render "comments", comment: @story.comments %>
     </div>
-  </div> 
+  </div>
 </div>

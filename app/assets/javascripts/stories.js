@@ -1,8 +1,8 @@
 $(function(){
 
-  $("span.positive-votes a").on("click", { signal: '+' }, ratingStory);
+  $("span.positive-votes a").on("click", { signal: '+ ' }, ratingStory);
 
-  $("span.negative-votes a").on("click", { signal: '-' }, ratingStory);
+  $("span.negative-votes a").on("click", { signal: '- ' }, ratingStory);
 
 });
 
@@ -39,9 +39,9 @@ function ratingStory(e){
 
     },
     success: function(res){
-      
+
     }
   });
-  
+
 
 }
