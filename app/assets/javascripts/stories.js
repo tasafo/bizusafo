@@ -1,10 +1,11 @@
-$(function(){
+var ready;
+ready = function() {
+  $("span.positive-votes a").on("click", { signal: '+' }, ratingStory);
+  $("span.negative-votes a").on("click", { signal: '-' }, ratingStory);
+};
 
-  $("span.positive-votes a").on("click", { signal: '+ ' }, ratingStory);
-
-  $("span.negative-votes a").on("click", { signal: '- ' }, ratingStory);
-
-});
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 function ratingStory(e){
 
@@ -13,8 +14,6 @@ function ratingStory(e){
   var linkText = $(_this).text();
   var count = parseInt($(_this).attr('data-count'));
   var signal = e.data.signal;
-
-  if($(_this).attr('href') === "#") return ;
 
   $.ajax({
     url: $(_this).attr('href'),
@@ -28,8 +27,6 @@ function ratingStory(e){
 
       $(_this).attr('data-count', count);
 
-      $(_this).attr('href', "#");
-
     },
     error: function(){
 
@@ -39,7 +36,15 @@ function ratingStory(e){
 
     },
     success: function(res){
+      var ratingHandlers = $(_this).closest(".story-ratings").children(".ratings-count");
 
+      $.each(ratingHandlers, function( index, handler ) {
+        
+        var text = $(handler).text();
+
+        $(handler).text(text);
+      
+      });
     }
   });
 
