@@ -15,32 +15,29 @@ module StoriesHelper
     return "- #{count}"
   end
 
-  def positive_ratings_url(story)
-    return "#" unless user_signed_in?
-
-    votes = story.ratings.has_votes_for current_user, "Story"
-
-    return story_positive_path(story) if story.user != current_user and votes.empty?
-
-    "#"
-  end
-
-  def has_votes_current_user(story)
-    votes = story.ratings.has_votes_for current_user, "Story"
-    votes.present?
-  end
-
-  def negative_ratings_url(story)
-    return "#" unless user_signed_in?
-
-    votes = story.ratings.has_votes_for current_user, "Story"
-
-    return story_negative_path(story) if story.user != current_user and votes.empty?
-
-    "#"
-  end
-
   def disabled_field(story)
     story.new_record? ? nil : "disabled"
+  end
+
+  def story_positive_rating_handler(story)
+    if can_rate_for?(story)
+      link_to positive_votes_count(story), story_positive_path(story), "data-count" => story.ratings.positive.count
+    else
+      positive_votes_count(story)
+    end
+  end
+
+  def story_negative_rating_handler(story)
+    if can_rate_for?(story)
+      link_to negative_votes_count(story), story_negative_path(story), "data-count" => story.ratings.negative.count
+    else
+      negative_votes_count(story)
+    end
+  end
+
+  def can_rate_for?(story)
+    return false unless current_user
+    rates = story.ratings.has_votes_for current_user, "Story"
+    story.user != current_user && rates.empty?
   end
 end

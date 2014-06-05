@@ -83,11 +83,13 @@
   margin-bottom: 20px;
 }
 
+.positive-votes,
 .positive-votes a {
   margin-right: 10px;
   color: green;
 }
 
+.negative-votes,
 .negative-votes a {
   margin-left: 10px;
   color: red;
@@ -100,7 +102,7 @@
 .story-ratings {
   margin-right: 13px;
   float: right;
-  font-size: 23px;
+  font-size: 18px;
 }
 
 .votes-separator {
