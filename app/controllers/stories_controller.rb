@@ -43,13 +43,13 @@ class StoriesController < ApplicationController
   end
 
   def positive
-    if get_story.ratings.create(:user => current_user, :positive => true)
+    if get_story.add_positive_rating!(current_user)
       render json: { success: true }
     end
   end
 
   def negative
-    if get_story.ratings.create :user => current_user, :positive => false
+    if get_story.add_negative_rating!(current_user)
       render json: { success: true }
     end
   end

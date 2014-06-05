@@ -113,3 +113,17 @@
 .field_with_errors {
   color: #EE3C3C;
 }
+
+#story_filters {
+  ul, li {
+    display: inline-block;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  li {
+    margin-left: 10px;
+  }
+}

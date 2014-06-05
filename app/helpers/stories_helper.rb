@@ -40,4 +40,14 @@ module StoriesHelper
     rates = story.ratings.has_votes_for current_user, "Story"
     story.user != current_user && rates.empty?
   end
+
+  def story_order_handler(text, order, args = {})
+    klass = "label label-primary" if params["order"] && params["order"].to_sym == order
+    link_to text, root_path({ order: order }.merge args), class: klass
+  end
+
+  def story_filter_handler(text, filter, args = {})
+    klass = "label label-primary" if params["filter"] && params["filter"].to_sym == filter
+    link_to text, root_path({ filter: filter }.merge args), class: klass
+  end
 end
