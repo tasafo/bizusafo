@@ -37,6 +37,7 @@ gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails' # needs to be a dev dep to enable rake tasks
+  gem 'pry'
 end
 
 group :test do
