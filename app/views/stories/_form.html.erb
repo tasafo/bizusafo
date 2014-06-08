@@ -1,3 +1,4 @@
+<%= render "shared/error_messages", record: @story %>
 <div class="form-group">
   <%= f.label "URL" %>
   <%= f.text_field :url, class: "form-control", placeholder: "URL do Bizu!", disabled: disabled_field(story) %>
