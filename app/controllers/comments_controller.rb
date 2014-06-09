@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build comment_params
     @comment.save
 
-    redirect_to @comment.commentable
+    redirect_to @comment.commentable, :notice => "Comentário criado com sucesso!"
   end
 
   private

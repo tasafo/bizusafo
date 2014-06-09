@@ -3,6 +3,11 @@
     messages:
       not_saved: "Não foi salvo."
 
+  devise:
+    sessions:
+      user:
+        signed_in: "Bem vindo!"
+
   time:
     formats:
       default: ! '%d/%m/%Y - %H:%M'
@@ -14,6 +19,10 @@
         other: Usuários
       story:
         one: Bizu
+      comment:
+        zero: Não houve comentários
+        one: Comentário
+        other: Comentários
     attributes:
       user:
         username: "Username"
@@ -24,6 +33,8 @@
       story:
         url: "Url"
         description: "Descrição"
+      comment:
+        text: "Comentário"
     errors:
       models:
         user:
@@ -44,3 +55,7 @@
               invalid: "não é valida"
             description:
               blank: "não pode ficar em branco"
+        comment:
+          attributes:
+            text:
+              blank: "não pode ficar em branco."
