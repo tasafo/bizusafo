@@ -16,5 +16,6 @@
 /tmp
 .ruby-version
 coverage
+app/views/.DS_Store
 
 .rvmrc
