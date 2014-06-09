@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
     @story = current_user.stories.build story_params
 
     if @story.save
-      redirect_to root_path
+      redirect_to root_path, :notice => "Bizu criado com sucesso!"
     else
       render :new
     end
@@ -29,7 +29,7 @@ class StoriesController < ApplicationController
     @story = current_user.stories.find(params[:id])
 
     if @story.update_attributes story_params
-      redirect_to root_path
+      redirect_to root_path, :notice => "Bizu alterado com sucesso!"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class StoriesController < ApplicationController
     @story = current_user.stories.find(params[:id])
     @story.destroy
 
-    redirect_to root_path
+    redirect_to root_path, :notice => "Bizu excluido com sucesso!"
   end
 
   def positive

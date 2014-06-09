@@ -5,7 +5,7 @@
   <div class="new-comment-container">
     <%= form_for Comment.new do |f| %>
       <div class="form-group">
-        <%= f.text_area :text, class: "form-control", placeholder: "Comente aqui" %>
+        <%= f.text_area :text, class: "form-control", required: true, placeholder: "Comente aqui" %>
       </div>
       <%= f.hidden_field :commentable_type, value: "Story" %>
       <%= f.hidden_field :commentable_id, value: @story.id %>
