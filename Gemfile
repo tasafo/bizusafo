@@ -35,6 +35,8 @@ gem 'thin'
 
 gem 'devise'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'rspec-rails' # needs to be a dev dep to enable rake tasks
   gem 'pry'
