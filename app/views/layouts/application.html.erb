@@ -18,6 +18,8 @@
     <hr>
   </div>
 
+  <%= render "shared/flash_messages" %>
+
   <div class="menu-btn-actions">
   <% if user_signed_in? %>
     <div class="menu-btn-actions">
@@ -26,7 +28,6 @@
         <%= link_to "Novo Bizuuu!", new_story_path, class: "btn btn-default" %>
         <%= link_to "Perfil", edit_user_registration_path, class: "btn btn-default" %>
         <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
-        <center><%= render "shared/flash_messages" %></center>
       </div>
     </div>
   <% else %>

@@ -1,5 +1,13 @@
-<% flash.each do |type, message| %>
-  <p class="<%= type %> message">
-    <%= message %>
+<% if flash[:notice] %>
+  <p class="notice alert alert-success message">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
+<% if flash[:error] %>
+  <p class="notice alert alert-danger message">
+    <a class="close" data-dismiss="alert">×</a>
+    <b>ATENÇÃO:</b> <%= flash[:error] %>
   </p>
 <% end %>
