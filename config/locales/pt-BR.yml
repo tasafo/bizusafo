@@ -3,11 +3,6 @@
     messages:
       not_saved: "Não foi salvo."
 
-  devise:
-    sessions:
-      user:
-        signed_in: "Bem vindo!"
-
   time:
     formats:
       default: ! '%d/%m/%Y - %H:%M'
@@ -29,6 +24,7 @@
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
+        current_password: "Senha atual"
         remember_me: "Lembre-me"
       story:
         url: "Url"

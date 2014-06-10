@@ -1,9 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @stories = Story.page params[:page]
-
-    @stories = @stories.send(params[:order] ||= :by_date)
-    @stories = @stories.send(params[:filter] ||= :timeline)
-    @stories = @stories.timeline
+    @stories = Story::Filter.new.filter(params)
   end
 end
