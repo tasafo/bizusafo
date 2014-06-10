@@ -3,15 +3,6 @@
     messages:
       not_saved: "Não foi salvo."
 
-  devise:
-    sessions:
-      user:
-        signed_in: "Bem vindo!"
-        signed_out: "Até a próxima!"
-    passwords:
-      user:
-        send_instructions: "Instruções para recuperar sua senha foram enviadas para seu email."
-
   time:
     formats:
       default: ! '%d/%m/%Y - %H:%M'
