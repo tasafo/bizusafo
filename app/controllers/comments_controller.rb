@@ -3,9 +3,9 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build comment_params
     
     if @comment.save
-      redirect_to @comment.commentable, :notice => "Comentário criado com sucesso!"
+      redirect_to @comment.commentable, notice: "Comentário criado com sucesso!"
     else
-      redirect_to @comment.commentable, flash: { error: "Comentário não pôde ser enviado..." }
+      redirect_to @comment.commentable, alert: "Comentário não pôde ser enviado..."
     end
   end
 
