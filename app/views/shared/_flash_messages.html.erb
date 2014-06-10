@@ -11,3 +11,10 @@
     <b>ATENÇÃO:</b> <%= flash[:error] %>
   </p>
 <% end %>
+
+<% if flash[:alert] %>
+  <p class="notice alert alert-danger message">
+    <a class="close" data-dismiss="alert">×</a>
+    <b>ATENÇÃO:</b> <%= flash[:alert] %>
+  </p>
+<% end %>
