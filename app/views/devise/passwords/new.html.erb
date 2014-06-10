@@ -1,6 +1,13 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "form-signin", method: :post }) do |f| %>
-    <%= devise_error_messages! %>
+    
+    <% if resource.errors.any? %>
+      <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= devise_error_messages! %>
+      </div>
+    <% end %>
+
     <legend>Esqueceu sua Senha?</legend>
 
     <div class="form-group">
