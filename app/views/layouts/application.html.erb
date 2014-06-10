@@ -8,32 +8,12 @@
 </head>
 <body>
 <div class="container">
-  <div class="page_header logo_title link_title">
-    <%= link_to root_path do %>
-      <p class="title-font title-margin">
-        BizuSafo
-        <span class="sub_title">| links compartilhados</span>
-      </p>
-    <% end %>
-    <hr>
-  </div>
+  <%= render "shared/header" %>
 
   <%= render "shared/flash_messages" %>
 
-  <div class="menu-btn-actions">
-  <% if user_signed_in? %>
-    <div class="menu-btn-actions">
-      <p>Olá <strong><%= current_user.username %></strong>!</p>
-      <div class="menu-links-actions">
-        <%= link_to "Novo Bizuuu!", new_story_path, class: "btn btn-default" %>
-        <%= link_to "Perfil", edit_user_registration_path, class: "btn btn-default" %>
-        <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
-      </div>
-    </div>
-  <% else %>
-    <%= link_to "Entrar", new_user_session_path, class: "btn btn-default" %>
-  <% end %>
-</div>
+  <%= render "shared/main_menu" %>
+  
   <%= yield %>
 </div>
 
