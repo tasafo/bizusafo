@@ -12,6 +12,8 @@ class Story < ActiveRecord::Base
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable
 
+  paginates_per 10
+
   def add_positive_rating!(user)
     transaction do
       self.ratings.create(:user => user, :positive => true)
