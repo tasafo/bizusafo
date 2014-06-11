@@ -3,11 +3,16 @@
     display: inline-block;
   }
 
-  ul {
-    padding-left: 10px;
+  span {
+    margin-right: 10px;
   }
 
-  li {
+  ul {
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  li + li {
     margin-left: 10px;
   }
 }

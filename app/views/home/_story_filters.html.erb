@@ -1,5 +1,5 @@
 <nav id="story_filters">
-  Ordenar por:
+  <span>Ordenar por:</span>
   <ul>
     <li><%= story_order_handler "novos", :by_date,   filter: params[:filter] %></li>
     <li><%= story_order_handler "votos", :by_rating, filter: params[:filter] %></li>
