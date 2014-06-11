@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'PlayfairDisplaySC';
+  src: font-url('PlayfairDisplaySC-Regular.ttf') format('truetype');
+}
+
+#header {
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+}
+
+#header h1 {
+  font-family: 'PlayfairDisplaySC', cursive;
+  font-size: 3.5em;
+  margin: 0px;
+  line-height: 1;
+}
+
+#header h1 {
+  a:link, a:visited, a:hover, a:active  {
+    text-decoration: none;
+  }
+  
+  a:visited, a:hover, a:active{
+    color: #000000;
+  }
+}
+
+#header h1 small {
+  font-family: 'PlayfairDisplaySC', cursive;
+  font-size: 50%;
+}
