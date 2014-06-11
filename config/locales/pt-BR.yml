@@ -7,6 +7,9 @@
     formats:
       default: ! '%d/%m/%Y - %H:%M'
 
+  story:
+    no_story: "Nenhum Bizuuu aqui!"
+
   activerecord:
     models:
       user:
