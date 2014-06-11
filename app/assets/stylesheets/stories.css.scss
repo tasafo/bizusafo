@@ -20,19 +20,21 @@
     margin-bottom: 25px;
   }
 
+  .comments-status,
   .comments-status a {
-    font-size:13px;
+    font-size: 13px;
     color: gray;
+    margin-bottom: 20px;
   }
-}
-
-.time-container {
-  text-align: right;
 
   .user-photo {
     width: 24px;
     height: 24px;
   }
+}
+
+.time-container {
+  text-align: right;
 }
 
 .story-ratings {

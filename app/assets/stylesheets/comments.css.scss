@@ -5,19 +5,27 @@ div.comment-container {
  -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
          border-radius: 5px;
-}
 
-div.comment-container aside {
-  vertical-align: middle;
-  width: 20px;
-  float: left;
-}
+  .user-photo {
+    width: 36px;
+    height: 36px;
+  }
 
-div.comment-container p {
-  margin-left: 30px;
-}
+  aside {
+    vertical-align: middle;
+    width: 20px;
+    float: left; 
+  }
 
-div.author-comment-box {
-  margin-bottom: 30px;
-  font-size: 12px;
+  p {
+    margin-left: 46px;
+    font-size: 1.3em;
+    font-weight: 200;
+  }
+
+  div.comment-author p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666;
+  }
 }

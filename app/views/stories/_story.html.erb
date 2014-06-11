@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-3">
       <div id="story-votes-<%=story.id%>" class="story-ratings">
-        <%= render partial: "ratings", locals: {story: story} %>
+        <%= render partial: "stories/ratings", locals: {story: story} %>
       </div>
     </div>
   </div>
@@ -25,6 +25,12 @@
           <%= link_to "editar", edit_story_path(story) %>
         <% end %>
       </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <%= render "stories/comments", story: story, show_comments: show_comments %>
     </div>
   </div>
 </div>
