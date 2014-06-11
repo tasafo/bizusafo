@@ -1,6 +1,6 @@
 <% if record.errors.any? %>
   <div class="alert alert-error alert-danger">
-    <%= t("errors.messages.not_saved") %> <a class="close" data-dismiss="alert">×</a>
+    <a class="close" data-dismiss="alert">×</a>
     <ul>
       <% record.errors.full_messages.each do |message| %>
         <li>
