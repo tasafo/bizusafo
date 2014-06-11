@@ -1,22 +1,24 @@
-<div class="container">
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "form-signin", method: :post }) do |f| %>
-    
-    <% if resource.errors.any? %>
-      <div class="alert alert-danger">
-        <a class="close" data-dismiss="alert">×</a>
-        <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "form-signin", method: :post }) do |f| %>
+      
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= devise_error_messages! %>
+        </div>
+      <% end %>
+
+      <legend>Esqueceu sua Senha?</legend>
+
+      <div class="form-group">
+        <div><%= f.label :email %><br />
+        <%= f.email_field :email, class: "form-control", autofocus: true %></div>
       </div>
+
+      <div><%= f.submit "Enviar as instruções para redefinir a senha", class: "btn btn-primary" %></div>
+
+      <%= render "devise/shared/links" %>
     <% end %>
-
-    <legend>Esqueceu sua Senha?</legend>
-
-    <div class="form-group">
-      <div><%= f.label :email %><br />
-      <%= f.email_field :email, class: "form-control", autofocus: true %></div>
-    </div>
-
-    <div><%= f.submit "Enviar as instruções para redefinir a senha", class: "btn btn-default btn-block" %></div>
-
-    <%= render "devise/shared/links" %>
-  <% end %>
+  </div>
 </div>
