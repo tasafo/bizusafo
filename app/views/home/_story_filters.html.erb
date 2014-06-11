@@ -1,0 +1,11 @@
+<nav id="story_filters">
+  Ordenar por:
+  <ul>
+    <li><%= story_order_handler "novos", :by_date,   filter: params[:filter] %></li>
+    <li><%= story_order_handler "votos", :by_rating, filter: params[:filter] %></li>
+    <li>|</li>
+    <li><%= story_filter_handler "todos",       :timeline,         order: params[:order] %></li>
+    <li><%= story_filter_handler "este mês",    :by_current_month, order: params[:order] %></li>
+    <li><%= story_filter_handler "esta semana", :by_current_week,  order: params[:order] %></li>
+  </ul>
+</nav>
