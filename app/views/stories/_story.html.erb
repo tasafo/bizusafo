@@ -1,0 +1,36 @@
+<div class="story-container">
+  <div class="row">
+    <div class="col-md-9 story-description">
+      <div class="lead">
+        <%= link_to story.description, story.url, target: "_blank" %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div id="story-votes-<%=story.id%>" class="story-ratings">
+        <%= render partial: "stories/ratings", locals: {story: story} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 comments-status">
+      <%= link_to "#{story.comments.count} Comentários", story %>
+    </div>
+
+    <div class="col-md-6 time-container">
+      <%= image_tag avatar_url(story.user), class: "user-photo" %>
+      <span>
+        <%= story.user.username %> <strong>em</strong> <%= l story.created_at %>
+        <% if story.user == current_user %>
+          |
+          <%= link_to "editar", edit_story_path(story) %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <%= render "stories/comments", story: story, show_comments: show_comments %>
+    </div>
+  </div>
+</div>

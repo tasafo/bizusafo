@@ -1,10 +1,10 @@
 <div class="comment-container">
-  <div class="author-comment-box">
+  <div class="comment-author">
     <aside>
       <%= image_tag avatar_url(comment.author), class: "user-photo" %>
     </aside>
     <p>
-      <%= comment.username %> <strong>em</strong> <%= l comment.created_at %><br />
+      <%= comment.username %> <b>em</b> <%= l comment.created_at %><br />
     </p>
   </div>
   <p><%= comment.text %></p>

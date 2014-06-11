@@ -1,22 +1,24 @@
-<div class="container">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
-    <legend>Entrar</legend>
-    <div class="form-group">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, class: "form-control", required: true, autofocus: true %>
-    </div>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+      <legend>Entrar</legend>
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: "form-control", required: true, autofocus: true %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, class: "form-control", required: true, autocomplete: "off" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: "form-control", required: true, autocomplete: "off" %>
+      </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="form-group"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-    <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
 
-    <div><%= f.submit "Entrar", class: "btn btn-default btn-block" %></div>
-    <br/>
-    <%= render "devise/shared/links" %>
-  <% end %>
+      <div><%= f.submit "Entrar", class: "btn btn-primary" %></div>
+      <br/>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
 </div>

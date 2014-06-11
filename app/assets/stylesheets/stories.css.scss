@@ -2,42 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-  font-family: 'PlayfairDisplaySC';
-  src: font-url('PlayfairDisplaySC-Regular.ttf') format('truetype');
-}
-
-.title-font {
-  font-family: 'PlayfairDisplaySC', cursive;
-  font-size: 48px;
-}
-
-.link_title a:link, a:visited, a:hover, a:active{
-  text-decoration: none;
-}
-
-.link_title a:visited, a:hover, a:active{
-  color: #000000;
-}
-
-.sub_title {
-  font-family: 'PlayfairDisplaySC', cursive;
-  font-size: 28px;
-}
-
-.user-photo {
-  width: 24px;
-  height: 24px;
-}
-
-.links-helper {
-  margin-top: 18px;
-}
-
 .story-container {
-  padding: 19px 29px 36px;
-  margin: 20px 0 15px 0;
-  background-color: #fff;
+  padding: 19px;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
@@ -45,85 +11,49 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
 
-.story-container .lead p {
-  margin-bottom: 15px;
-}
+  & + & {
+    margin-top: 20px;
+  }
 
-.story-container .comments-status p {
-  font-size:13px ;
-  margin-left: -15px;
-  color: gray;
-}
+  .story-description {
+    margin-bottom: 25px;
+  }
 
-.story-container .comments-status a {
-  color: gray;
-}
+  .comments-status,
+  .comments-status a {
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 20px;
+  }
 
-.form-signin {
-  max-width: 600px;
-  padding: 0px 29px 29px;
-  margin: 0 auto 20px;
-  background-color: #fff;
-  margin-top: 30px;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  .user-photo {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .time-container {
-  float: right;
-}
-
-.menu-btn-actions {
-  margin-bottom: 20px;
-}
-
-.positive-votes,
-.positive-votes a {
-  margin-right: 10px;
-  color: green;
-}
-
-.negative-votes,
-.negative-votes a {
-  margin-left: 10px;
-  color: red;
-}
-
-.story-description-ratings {
-  margin-bottom: 25px;
+  text-align: right;
 }
 
 .story-ratings {
-  margin-right: 13px;
-  float: right;
+  text-align: right;
   font-size: 18px;
-}
 
-.votes-separator {
-  color: #A9A9A9;
-}
-
-#error_explanation,
-.field_with_errors {
-  color: #EE3C3C;
-}
-
-#story_filters {
-  ul, li {
-    display: inline-block;
+  .votes-separator {
+    color: #A9A9A9;
   }
 
-  ul {
-    padding-left: 10px;
+  .positive-votes,
+  .positive-votes a {
+    margin-right: 10px;
+    color: green;
   }
 
-  li {
+  .negative-votes,
+  .negative-votes a {
     margin-left: 10px;
+    color: red;
   }
 }

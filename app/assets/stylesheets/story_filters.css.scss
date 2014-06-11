@@ -1,0 +1,18 @@
+#story_filters {
+  ul, li {
+    display: inline-block;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  ul {
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  li + li {
+    margin-left: 10px;
+  }
+}

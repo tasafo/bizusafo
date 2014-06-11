@@ -1,5 +1,10 @@
-<%= form_for @story, html: {class: "form-signin"} do |f| %>
-  <legend>Novo Bizu!</legend>
-  <%= render partial: "form", locals: {f: f, story: @story} %>
-  <button type="submit" class="btn btn-default btn-block">Bizuuuu!</button>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @story do |f| %>
+      <legend>Novo Bizu!</legend>
+      
+      <%= render partial: "form", locals: {f: f, story: @story} %>
+
+      <button type="submit" class="btn btn-primary">Bizuuuu!</button>
+  <% end %>
+</div>

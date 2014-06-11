@@ -19,3 +19,4 @@ coverage
 app/views/.DS_Store
 
 .rvmrc
+.DS_Store
