@@ -5,6 +5,16 @@
       
       <%= render partial: "form", locals: {f: f, story: @story} %>
 
+      <div class="form-group">
+        <%= f.fields_for :comments do |b| %>
+          <%= b.label :text, "Primeiro Comentário (opcional)" %>
+
+          <%= b.text_area :text, class: "form-control", placeholder: "Comente aqui" %>
+          <%= b.hidden_field :commentable_type, value: "Story" %>
+          <%= b.hidden_field :commentable_id, value: @story.id %>
+        <% end %>
+      </div>
+
       <button type="submit" class="btn btn-primary">Bizuuuu!</button>
   <% end %>
 </div>

@@ -9,14 +9,17 @@ class StoriesController < ApplicationController
 
   def new
     @story = current_user.stories.build
+    @story.comments.build
   end
 
   def create
-    @story = current_user.stories.build story_params
+    @story = current_user.stories.build new_story_params
+    @story.comments.first.author = current_user if @story.comments.present?
 
     if @story.save
       redirect_to root_path, :notice => "Bizu criado com sucesso!"
     else
+      @story.comments.build if @story.comments.blank?
       render :new
     end
   end
@@ -60,7 +63,11 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:story_id])
   end
 
+  def new_story_params
+    params.require(:story).permit(:description, :url, :comments_attributes => [:text, :commentable_type, :commentable_id, :author_id])
+  end
+
   def story_params
-    params.require(:story).permit([:description, :url])
+    params.require(:story).permit(:description, :url)
   end
 end
