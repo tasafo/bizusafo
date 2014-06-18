@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= @story.description %>" />
   <meta property="og:description" content="Link compartilhado via BizuSafo!" />
+  <meta property="og:image" content="<%= image_url("default_fb_sharing_img.png") %>" />
 <% end %>
 
 <%= render "story", story: @story, show_comments: true %>
