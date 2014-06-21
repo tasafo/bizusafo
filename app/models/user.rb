@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
-      user.username = generate_username_from_facebook(auth)
+      user.username = "#{auth.info.first_name} #{auth.info.last_name}".strip
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.facebook_image = auth.info.image
@@ -43,12 +43,5 @@ class User < ActiveRecord::Base
       provider: auth.provider,
       uid: auth.uid,
       name: auth.info.name)
-  end
-
-  def self.generate_username_from_facebook(auth)
-    first_name = auth.info.first_name
-    last_name = auth.info.last_name
-
-    "#{first_name}_#{last_name}_#{rand(99)}"
   end
 end
