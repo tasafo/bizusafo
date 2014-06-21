@@ -41,8 +41,10 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br />
-        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br /> 
+        <i>Caso você tenha esquecido sua senha atual ou acessado com o Facebook, por favor, clique em "Sair" e tente recuperar a sua senha através de seu email</i>
+        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %><br />
+
       </div>
 
       <div><%= f.submit "Atualizar", class: "btn btn-primary" %></div>

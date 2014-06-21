@@ -23,7 +23,7 @@
         other: Comentários
     attributes:
       user:
-        username: "Username"
+        username: "Apelido"
         email: "Email"
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
