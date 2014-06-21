@@ -13,7 +13,11 @@
 
       <div class="form-group">
         <%= f.label "foto" %><br />
-        A foto do perfil é recuperada pelo email cadastrado no <%= link_to "gravatar", "https://pt.gravatar.com/" %>.
+        <%= image_tag(avatar_url @user) %>
+
+        <i>
+          Foto capturada no Facebook ou de seu email cadastrado no <%= link_to "gravatar", "https://pt.gravatar.com/" %>.
+        </i>
       </div>
 
       <div class="form-group">
