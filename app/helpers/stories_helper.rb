@@ -22,6 +22,8 @@ module StoriesHelper
   def story_positive_rating_handler(story)
     if can_rate_for?(story)
       link_to positive_votes_count(story), story_positive_path(story), "data-count" => story.ratings.positive.count
+    elsif !current_user
+      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{positive_votes_count(story)}".html_safe
     else
       positive_votes_count(story)
     end
@@ -30,9 +32,15 @@ module StoriesHelper
   def story_negative_rating_handler(story)
     if can_rate_for?(story)
       link_to negative_votes_count(story), story_negative_path(story), "data-count" => story.ratings.negative.count
+    elsif !current_user
+      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{negative_votes_count(story)}".html_safe
     else
       negative_votes_count(story)
     end
+  end
+
+  def sign_in_to_rate_popover_text
+    "Para votar, #{link_to "entre aqui", new_user_session_path} ou #{link_to "acesse com o Facebook", user_omniauth_authorize_path(:facebook)}!"
   end
 
   def can_rate_for?(story)
