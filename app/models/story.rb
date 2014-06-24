@@ -16,6 +16,10 @@ class Story < ActiveRecord::Base
 
   paginates_per 10
 
+  def rated_by?(rater)
+    ratings.includes(:user).map(&:user).include? rater
+  end
+
   def add_positive_rating!(user)
     transaction do
       self.ratings.create(:user => user, :positive => true)

@@ -1,0 +1,4 @@
+john:
+  username: john_doe
+  email: johndow@gmail.com
+  encrypted_password: "$2a$10$JzmMKF7u4y/qBR1He8toe.PH9IKw066z0aSsYUVUo/SkLkUc8I5Zy"
