@@ -13,7 +13,11 @@
 
       <div class="form-group">
         <%= f.label "foto" %><br />
-        A foto do perfil é recuperada pelo email cadastrado no <%= link_to "gravatar", "https://pt.gravatar.com/" %>.
+        <%= image_tag(avatar_url @user) %>
+
+        <i>
+          Foto capturada no Facebook ou de seu email cadastrado no <%= link_to "gravatar", "https://pt.gravatar.com/" %>.
+        </i>
       </div>
 
       <div class="form-group">
@@ -41,8 +45,10 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br />
-        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br /> 
+        <i>Caso você tenha esquecido sua senha atual ou acessado com o Facebook, por favor, clique em "Sair" e tente recuperar a sua senha através de seu email</i>
+        <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %><br />
+
       </div>
 
       <div><%= f.submit "Atualizar", class: "btn btn-primary" %></div>

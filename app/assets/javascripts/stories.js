@@ -1,11 +1,9 @@
-var ready;
-ready = function() {
+$(document).ready(function() {
   $("span.positive-votes a").on("click", { signal: '+' }, ratingStory);
   $("span.negative-votes a").on("click", { signal: '-' }, ratingStory);
-};
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+  $('.sign-in-to-rate').popover({ html: true, container: "body" });
+});
 
 function ratingStory(e){
 
@@ -47,6 +45,5 @@ function ratingStory(e){
       });
     }
   });
-
 
 }

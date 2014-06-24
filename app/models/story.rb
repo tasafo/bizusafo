@@ -12,6 +12,8 @@ class Story < ActiveRecord::Base
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable
 
+  accepts_nested_attributes_for :comments, reject_if: proc { |attributes| attributes["text"].blank? }
+
   paginates_per 10
 
   def add_positive_rating!(user)
