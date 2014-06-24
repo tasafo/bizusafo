@@ -66,4 +66,8 @@ module StoriesHelper
     klass = "label label-primary" if params["filter"] && params["filter"].to_sym == filter
     link_to text, root_path({ filter: filter }.merge args), class: klass
   end
+
+  def story_tag_handler(tag, args = {})
+    link_to tag, root_path({ tag: tag }.merge args)
+  end
 end

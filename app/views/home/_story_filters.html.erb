@@ -1,11 +1,22 @@
 <nav id="story_filters">
   <span>Ordenar por:</span>
   <ul>
-    <li><%= story_order_handler "novos", :by_date,   filter: params[:filter] %></li>
-    <li><%= story_order_handler "votos", :by_rating, filter: params[:filter] %></li>
+    <li><%= story_order_handler "novos", :by_date,   filter: params[:filter], tag: params[:tag] %></li>
+    <li><%= story_order_handler "votos", :by_rating, filter: params[:filter], tag: params[:tag] %></li>
     <li>|</li>
-    <li><%= story_filter_handler "todos",       :timeline,         order: params[:order] %></li>
-    <li><%= story_filter_handler "este mês",    :by_current_month, order: params[:order] %></li>
-    <li><%= story_filter_handler "esta semana", :by_current_week,  order: params[:order] %></li>
+    <li><%= story_filter_handler "todos",       :timeline,         order: params[:order], tag: params[:tag] %></li>
+    <li><%= story_filter_handler "este mês",    :by_current_month, order: params[:order], tag: params[:tag] %></li>
+    <li><%= story_filter_handler "esta semana", :by_current_week,  order: params[:order], tag: params[:tag] %></li>
+    
+    <% if params[:tag] %>
+      <li>|</li>
+      <li>Tag:</li>
+      <li>
+        <span class="label label-primary">
+          <%= params[:tag] %>
+        </span>
+        (<%= link_to "remover tag", root_path(order: params[:order], filter: params[:filter]) %>)
+      </li>
+    <% end %>
   </ul>
 </nav>

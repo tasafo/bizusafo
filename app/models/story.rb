@@ -1,12 +1,14 @@
 class Story < ActiveRecord::Base
+  acts_as_taggable
+
   validates :url, format: { with: URI.regexp }
   validates :description, :url, presence: true
 
   scope :timeline, -> { order(created_at: :desc) }
   scope :by_date, -> { order(created_at: :desc) }
   scope :by_rating, -> { order(rating_counter: :desc) }
-  scope :by_current_month, -> { where("created_at > ?", 30.days.ago) }
-  scope :by_current_week, -> { where("created_at > ?", 7.days.ago) }
+  scope :by_current_month, -> { where("stories.created_at > ?", 30.days.ago) }
+  scope :by_current_week, -> { where("stories.created_at > ?", 7.days.ago) }
 
   belongs_to :user
   has_many :ratings, as: :rateable
