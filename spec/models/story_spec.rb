@@ -7,6 +7,24 @@ describe Story do
     it { should validate_presence_of(:url) }
   end
 
+  describe "rated_by?" do
+    fixtures :users
+    fixtures :stories
+    fixtures :ratings
+
+    let!(:user) { users(:john) }
+
+    it "returns true if user rated story" do
+      story = stories(:how_to)
+      assert story.rated_by?(user)
+    end
+
+    it "returns false if user did not rate story" do
+      story = stories(:top_tips)
+      assert !story.rated_by?(user)
+    end
+  end
+
   describe "filters orders stories" do
     fixtures :stories
 

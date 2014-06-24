@@ -9,6 +9,8 @@
 
   story:
     no_story: "Nenhum Bizuuu aqui!"
+    cant_rate_on_own_story: "Você não pode votar no seu próprio link!"
+    cant_rate_again: "Você já votou neste link."
 
   activerecord:
     models:

@@ -1,0 +1,4 @@
+john-how-to:
+  rateable: how_to(story)
+  user: john
+  positive: true
