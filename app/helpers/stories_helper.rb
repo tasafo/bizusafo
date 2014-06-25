@@ -62,6 +62,6 @@ module StoriesHelper
 
     query = params.merge({ filter_type => filter })
     query.delete :page
-    link_to text, root_path(query), class: css_class
+    link_to text, root_path(query), class: css_class 
   end
 end
