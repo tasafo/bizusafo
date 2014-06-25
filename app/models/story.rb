@@ -18,8 +18,8 @@ class Story < ActiveRecord::Base
 
   paginates_per 10
 
-  def rated_by?(rater)
-    ratings.includes(:user).map(&:user).include? rater
+  def rated_by?(user)
+    ratings.has_votes_for(user, "Story").any?
   end
 
   def add_positive_rating!(user)
