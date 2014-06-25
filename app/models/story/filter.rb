@@ -9,7 +9,9 @@ class Story::Filter
   def filter(params)
     @params = params
 
-    @stories = Story.page @params[:page]
+    @stories = Story
+    @stories = @stories.tagged_with(@params[:tag]) if @params[:tag]
+    @stories = @stories.page @params[:page]
     @stories = @stories.send(@params[:order] ||= DEFAULT_FILTERS[:order])
     @stories = @stories.send(@params[:filter] ||= DEFAULT_FILTERS[:filter])
     @stories = @stories.timeline

@@ -53,17 +53,15 @@ module StoriesHelper
 
   def can_rate_for?(story)
     return false unless current_user
-    rates = story.ratings.has_votes_for current_user, "Story"
-    story.user != current_user && rates.empty?
+    has_rates = story.rated_by? current_user
+    story.user != current_user && !has_rates
   end
 
-  def story_order_handler(text, order, args = {})
-    klass = "label label-primary" if params["order"] && params["order"].to_sym == order
-    link_to text, root_path({ order: order }.merge args), class: klass
-  end
+  def story_filter_handler(text, filter_type, filter)
+    css_class = "label label-primary" if params[filter_type] && params[filter_type].to_sym == filter
 
-  def story_filter_handler(text, filter, args = {})
-    klass = "label label-primary" if params["filter"] && params["filter"].to_sym == filter
-    link_to text, root_path({ filter: filter }.merge args), class: klass
+    query = params.merge({ filter_type => filter })
+    query.delete :page
+    link_to text, root_path(query), class: css_class
   end
 end

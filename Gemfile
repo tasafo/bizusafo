@@ -14,6 +14,7 @@ gem 'thin'
 gem 'devise'
 gem 'kaminari'
 gem 'omniauth-facebook'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'rspec-rails' # needs to be a dev dep to enable rake tasks
