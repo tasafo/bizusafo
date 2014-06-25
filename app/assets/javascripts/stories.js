@@ -3,6 +3,7 @@ $(document).ready(function() {
   $("span.negative-votes a").on("click", { signal: '-' }, ratingStory);
 
   $('.sign-in-to-rate').popover({ html: true, container: "body" });
+  $('.popover-trigger').popover({ container: "body" });
 });
 
 function ratingStory(e){

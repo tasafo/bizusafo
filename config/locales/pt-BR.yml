@@ -9,6 +9,11 @@
 
   story:
     no_story: "Nenhum Bizuuu aqui!"
+    sample_tags: "ex: Java, IDE, Padrão (separe as tags por vírgulas)"
+    sample_description: "Deixe seu Bizuuuuuuu!"
+    sample_url: "URL do Bizu!"
+    cant_rate_on_own_story: "Você não pode votar no seu próprio link!"
+    cant_rate_again: "Você já votou neste link."
 
   activerecord:
     models:

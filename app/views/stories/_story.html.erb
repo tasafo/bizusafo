@@ -4,6 +4,12 @@
       <div class="lead">
         <%= link_to story.description, story.url, target: "_blank" %>
       </div>
+
+      <% if story.tag_list.present? %>
+        <aside class="tags">
+          Tags: <%= raw story.tag_list.map { |tag| story_filter_handler tag, :tag, tag }.join ", " %>
+        </aside>
+      <% end %>
     </div>
     <div class="col-md-3">
       <div id="story-votes-<%=story.id%>" class="story-ratings">

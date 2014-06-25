@@ -24,6 +24,10 @@ module StoriesHelper
       link_to positive_votes_count(story), story_positive_path(story), "data-count" => story.ratings.positive.count
     elsif !current_user
       "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{positive_votes_count(story)}".html_safe
+    elsif story.user == current_user
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{positive_votes_count(story)}".html_safe
+    elsif story.rated_by? current_user
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{positive_votes_count(story)}".html_safe
     else
       positive_votes_count(story)
     end
@@ -34,6 +38,10 @@ module StoriesHelper
       link_to negative_votes_count(story), story_negative_path(story), "data-count" => story.ratings.negative.count
     elsif !current_user
       "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{negative_votes_count(story)}".html_safe
+    elsif story.user == current_user
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{negative_votes_count(story)}".html_safe
+    elsif story.rated_by? current_user
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{negative_votes_count(story)}".html_safe
     else
       negative_votes_count(story)
     end
@@ -45,17 +53,15 @@ module StoriesHelper
 
   def can_rate_for?(story)
     return false unless current_user
-    rates = story.ratings.has_votes_for current_user, "Story"
+    rates = story.rated_by? current_user
     story.user != current_user && rates.empty?
   end
 
-  def story_order_handler(text, order, args = {})
-    klass = "label label-primary" if params["order"] && params["order"].to_sym == order
-    link_to text, root_path({ order: order }.merge args), class: klass
-  end
+  def story_filter_handler(text, filter_type, filter)
+    css_class = "label label-primary" if params[filter_type] && params[filter_type].to_sym == filter
 
-  def story_filter_handler(text, filter, args = {})
-    klass = "label label-primary" if params["filter"] && params["filter"].to_sym == filter
-    link_to text, root_path({ filter: filter }.merge args), class: klass
+    query = params.merge({ filter_type => filter })
+    query.delete :page
+    link_to text, root_path(query), class: css_class
   end
 end

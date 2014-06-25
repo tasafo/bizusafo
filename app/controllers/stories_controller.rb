@@ -64,10 +64,10 @@ class StoriesController < ApplicationController
   end
 
   def new_story_params
-    params.require(:story).permit(:description, :url, :comments_attributes => [:text, :commentable_type, :commentable_id, :author_id])
+    params.require(:story).permit(:description, :url, :tag_list, :comments_attributes => [:text, :commentable_type, :commentable_id, :author_id])
   end
 
   def story_params
-    params.require(:story).permit(:description, :url)
+    params.require(:story).permit(:description, :url, :tag_list)
   end
 end
