@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140625022429) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "rating_counter", default: 0
-    t.string   "tags"
   end
 
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree

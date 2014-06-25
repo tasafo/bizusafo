@@ -53,8 +53,8 @@ module StoriesHelper
 
   def can_rate_for?(story)
     return false unless current_user
-    rates = story.rated_by? current_user
-    story.user != current_user && rates.empty?
+    has_rates = story.rated_by? current_user
+    story.user != current_user && !has_rates
   end
 
   def story_filter_handler(text, filter_type, filter)
