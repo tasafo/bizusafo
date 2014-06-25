@@ -3,26 +3,22 @@
     display: inline-block;
   }
 
-  span {
-    margin-right: 10px;
-  }
-
   ul {
     padding: 0px;
     margin-top: 10px;
     margin-right: 10px;
   }
 
-  ul + ul {
-    margin-right: 0px;
-  }
-
-  li + li {
-    margin-left: 10px;
+  li {
+    margin-right: 10px;
   }
 
   form input {
     display: inline-block;
     width: 100px;
+  }
+
+  div.filters {
+    display: inline-block;
   }
 }

@@ -1,32 +1,36 @@
 <nav id="story_filters" class="row">
   <div class="col-lg-12">
-  <span>Ordenar por:</span>
-  <ul>
-    <li><%= story_filter_handler "novos", :order, :by_date %></li>
-    <li><%= story_filter_handler "votos", :order, :by_rating %></li>
-    <li>|</li>
-    <li><%= story_filter_handler "todos",       :filter, :timeline %></li>
-    <li><%= story_filter_handler "este mês",    :filter, :by_current_month %></li>
-    <li><%= story_filter_handler "esta semana", :filter, :by_current_week %></li>
-  </ul>
-  <ul>
-    <li>Tags:</li>
+    <div class="filters">
+      <span>Ordenar por:</span>
+      <ul>
+        <li><%= story_filter_handler "novos", :order, :by_date %></li>
+        <li><%= story_filter_handler "votos", :order, :by_rating %></li>
+        <li>|</li>
+        <li><%= story_filter_handler "todos",       :filter, :timeline %></li>
+        <li><%= story_filter_handler "este mês",    :filter, :by_current_month %></li>
+        <li><%= story_filter_handler "esta semana", :filter, :by_current_week %></li>
+      </ul>
+    </div>
 
-      <% if params[:tags].present? %>
-        <li>
-          <% params[:tags].split(",").map(&:strip).each do |tag| %>
-            <span class="label label-primary"><%= tag %></span>
-          <% end %>
-          (<%= link_to "remover tags", root_path(order: params[:order], filter: params[:filter]) %>)
-        </li>
-      <% else %>
-        <li>
-          <%= form_for :search, method: :get, html: { class: "form-inline" } do |f| %>
-            <%= text_field_tag :tags, nil, class: "form-control input-sm" %>
-            <%= f.button "Ok", class: "btn btn-default btn-sm" %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="filters">
+      <span>Tags:</span>
+      <ul>
+        <% if params[:tags].present? %>
+          <li>
+            <% params[:tags].split(",").map(&:strip).each do |tag| %>
+              <span class="label label-primary"><%= tag %></span>
+            <% end %>
+            (<%= link_to "remover tags", root_path(order: params[:order], filter: params[:filter]) %>)
+          </li>
+        <% else %>
+          <li>
+            <%= form_for :search, method: :get, html: { class: "form-inline" } do |f| %>
+              <%= text_field_tag :tags, nil, class: "form-control input-sm" %>
+              <%= f.button "Ok", class: "btn btn-default btn-sm" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
