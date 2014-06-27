@@ -8,6 +8,8 @@
 
   <%= yield :head %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ac86e060676e59"></script>
 </head>
 <body>
 <%= render "shared/facebook_api" %>
@@ -18,7 +20,7 @@
   <%= render "shared/flash_messages" %>
 
   <%= render "shared/main_menu" %>
-  
+
   <%= yield %>
 </div>
 

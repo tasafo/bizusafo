@@ -19,8 +19,18 @@
   </div>
   <div class="row">
     <div class="col-md-6 comments-status">
-      <%= link_to "#{story.comments.count} Comentários", story %>
-      <div class="fb-share-button" data-href="<%= story_url(story) %>" data-type="icon"></div>
+      <div class="addthis_toolbox addthis_default_style"
+            addthis:url="<%= story_url(story) %>"
+            addthis:title="olha o bizuuuu!"
+            addthis:description="<%= story.description %>">
+        <span class="addthis_separator">
+          <%= link_to "#{story.comments.count} Comentários", story %>
+        </span>
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_14"></a>
+        <a class="addthis_button_compact"></a>
+      </div>
     </div>
 
     <div class="col-md-6 time-container">
