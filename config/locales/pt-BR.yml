@@ -1,4 +1,6 @@
 "pt-BR":
+  shared_with_bizusafo: "Compatilhado via BizuSafo"
+
   errors:
     messages:
       not_saved: "Não foi salvo."
