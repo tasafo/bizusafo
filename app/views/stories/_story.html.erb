@@ -21,8 +21,8 @@
     <div class="col-md-6 comments-status">
       <div class="addthis_toolbox addthis_default_style"
             addthis:url="<%= story_url(story) %>"
-            addthis:title="olha o bizuuuu!"
-            addthis:description="<%= story.description %>">
+            addthis:title="<%= story.description %>"
+            addthis:description="<%= story.description %> - <%= t("shared_with_bizusafo") %>">
         <span class="addthis_separator">
           <%= link_to "#{story.comments.count} Comentários", story %>
         </span>
