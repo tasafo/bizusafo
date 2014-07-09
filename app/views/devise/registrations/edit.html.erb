@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-6">
+    <legend>Perfil</legend>
+    
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", method: :put }) do |f| %>
       
       <% if resource.errors.any? %>
@@ -8,12 +10,9 @@
           <%= devise_error_messages! %>
         </div>
       <% end %>
-
-      <legend>Perfil</legend>
-
       <div class="form-group">
         <%= f.label "foto" %><br />
-        <%= image_tag(avatar_url @user) %>
+        <%= image_tag(avatar_url @user) %><br />
 
         <i>
           Foto capturada no Facebook ou de seu email cadastrado no <%= link_to "gravatar", "https://pt.gravatar.com/" %>.
@@ -48,10 +47,10 @@
         <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br /> 
         <i>Caso você tenha esquecido sua senha atual ou acessado com o Facebook, por favor, clique em "Sair" e tente recuperar a sua senha através de seu email</i>
         <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %><br />
-
       </div>
 
       <div><%= f.submit "Atualizar", class: "btn btn-primary" %></div>
+
     <% end %>
 
     <!-- <h3>Cancel my account</h3>
@@ -59,5 +58,29 @@
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
     <%= link_to "Back", :back %> -->
+  </div>
+
+  <div class="col-md-6">
+    <%= form_for(current_user.notification_settings) do |f| %>
+      <legend><%= t("notification_settings.legend") %></legend>
+      <p>Desejo ser notificado por email sempre que alguém:</p>
+
+      <div class="form-group">
+        <%= f.check_box :new_rating %>
+        <%= f.label :new_rating, t("notification_settings.labels.new_rating") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.check_box :new_comment %>
+        <%= f.label :new_comment, t("notification_settings.labels.new_comment") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.check_box :new_comment_followed_story %>
+        <%= f.label :new_comment_followed_story, t("notification_settings.labels.new_comment_followed_story") %>
+      </div>
+
+      <div><%= f.submit "Atualizar preferências", class: "btn btn-primary" %></div>
+    <% end %>
   </div>
 </div>

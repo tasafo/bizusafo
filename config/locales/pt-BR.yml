@@ -9,6 +9,15 @@
     formats:
       default: ! '%d/%m/%Y - %H:%M'
 
+  notification_settings:
+    legend: "Preferências de Notificações"
+    update: "Preferências atualizadas com sucesso!"
+    error: "Algum erro aconteceu ao atualizar as preferências de notificações."
+    labels:
+      new_rating: "votar em um Bizu que você compartilhou."
+      new_comment: "comentar em um Bizu que você compartilhou."
+      new_comment_followed_story: "comentar em um Bizu que você está seguindo."
+
   story:
     no_story: "Nenhum Bizuuu aqui!"
     sample_tags: "ex: Java, IDE, Padrão (separe as tags por vírgulas)"

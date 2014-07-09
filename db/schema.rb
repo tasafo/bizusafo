@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625022429) do
+ActiveRecord::Schema.define(version: 20140709215138) do
 
   create_table "comments", force: true do |t|
     t.integer  "author_id"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20140625022429) do
 
   add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+
+  create_table "notification_settings", force: true do |t|
+    t.boolean  "new_comment_followed_story", default: true
+    t.boolean  "new_rating",                 default: true
+    t.boolean  "new_comment",                default: true
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
 
   create_table "ratings", force: true do |t|
     t.integer  "user_id"
@@ -44,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140625022429) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "rating_counter", default: 0
+    t.string   "tags"
   end
 
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree

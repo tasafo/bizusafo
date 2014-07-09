@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :comments, :foreign_key => 'author_id'
 
+  has_one :notification_settings, :dependent => :destroy
+  before_create :build_notification_settings
+
   def self.find_or_create_for_facebook_oauth(auth)
     user = where(auth.info.slice(:email)).first_or_create do |user|
       user.provider = auth.provider
