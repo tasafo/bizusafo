@@ -1,4 +1,6 @@
 class NotificationSettingsController < ApplicationController
+  before_action :authenticate_user!
+  
   def update
     @setting = current_user.notification_setting
     
