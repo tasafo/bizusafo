@@ -1,0 +1,12 @@
+john_settings:
+  new_rating: true
+  new_comment_followed_story: true
+  user: john
+
+amanda_settings:
+  new_comment_followed_story: false
+  user: amanda
+
+victor_settings:
+  new_comment_followed_story: true
+  user: victor

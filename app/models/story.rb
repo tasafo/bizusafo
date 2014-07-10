@@ -23,19 +23,23 @@ class Story < ActiveRecord::Base
   end
 
   def add_positive_rating!(user)
+    notify = false
     transaction do
       self.ratings.create(:user => user, :positive => true)
       self.rating_counter = self.rating_counter + 1
-      save
+      notify = save
     end
+    Notifier::NewRating.new(rater: user, story: self).notify_all! if notify
   end
 
 
   def add_negative_rating!(user)
+    notify = false
     transaction do
       self.ratings.create(:user => user, :positive => false)
       self.rating_counter = self.rating_counter - 1
-      save
+      notify = save
     end
+    Notifier::NewRating.new(rater: user, story: self).notify_all! if notify
   end
 end

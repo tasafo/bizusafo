@@ -61,23 +61,23 @@
   </div>
 
   <div class="col-md-6">
-    <%= form_for(current_user.notification_settings) do |f| %>
-      <legend><%= t("notification_settings.legend") %></legend>
+    <%= form_for(current_user.notification_setting) do |f| %>
+      <legend><%= t("notification_setting.legend") %></legend>
       <p>Desejo ser notificado por email sempre que alguém:</p>
 
       <div class="form-group">
         <%= f.check_box :new_rating %>
-        <%= f.label :new_rating, t("notification_settings.labels.new_rating") %>
+        <%= f.label :new_rating, t("notification_setting.labels.new_rating") %>
       </div>
 
       <div class="form-group">
         <%= f.check_box :new_comment %>
-        <%= f.label :new_comment, t("notification_settings.labels.new_comment") %>
+        <%= f.label :new_comment, t("notification_setting.labels.new_comment") %>
       </div>
 
       <div class="form-group">
         <%= f.check_box :new_comment_followed_story %>
-        <%= f.label :new_comment_followed_story, t("notification_settings.labels.new_comment_followed_story") %>
+        <%= f.label :new_comment_followed_story, t("notification_setting.labels.new_comment_followed_story") %>
       </div>
 
       <div><%= f.submit "Atualizar preferências", class: "btn btn-primary" %></div>

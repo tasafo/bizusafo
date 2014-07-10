@@ -1,4 +1,8 @@
 "pt-BR":
+  i18n: # for testing purposes...
+    plural: # for testing purposes...
+      rule: "" # for testing purposes...
+
   shared_with_bizusafo: "Compartilhado via BizuSafo"
 
   errors:
@@ -9,7 +13,7 @@
     formats:
       default: ! '%d/%m/%Y - %H:%M'
 
-  notification_settings:
+  notification_setting:
     legend: "Preferências de Notificações"
     update: "Preferências atualizadas com sucesso!"
     error: "Algum erro aconteceu ao atualizar as preferências de notificações."
@@ -17,6 +21,14 @@
       new_rating: "votar em um Bizu que você compartilhou."
       new_comment: "comentar em um Bizu que você compartilhou."
       new_comment_followed_story: "comentar em um Bizu que você está seguindo."
+
+  notifications:
+    new_rating:
+      subject: "[BizuSafo] Novo voto no Bizu que você compartilhou!"
+    new_comment:
+      subject: "[BizuSafo] Novo comentário no Bizu que você compartilhou!"
+    new_comment_followed_story:
+      subject: "[BizuSafo] Novo comentário no Bizu que você está seguindo!"
 
   story:
     no_story: "Nenhum Bizuuu aqui!"

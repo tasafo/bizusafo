@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.build comment_params
-    
-    if @comment.save
+    @comment = Comment.add_comment! comment_params.merge(author: current_user)
+    if @comment.persisted?
       redirect_to @comment.commentable, notice: "Comentário criado com sucesso!"
     else
       redirect_to @comment.commentable, alert: "Comentário não pôde ser enviado..."

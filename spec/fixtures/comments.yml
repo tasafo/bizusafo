@@ -1,0 +1,9 @@
+john_how_to:
+  text: "Liked this tutorial!"
+  author: john
+  commentable: how_to(story)
+
+victor_how_to:
+  text: "Amazing!"
+  author: victor
+  commentable: how_to(story)

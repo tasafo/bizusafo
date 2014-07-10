@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :comments, :foreign_key => 'author_id'
 
-  has_one :notification_settings, :dependent => :destroy
-  before_create :build_notification_settings
+  has_one :notification_setting, :dependent => :destroy
+  before_create :build_notification_setting
+
+  scope :commented_on_story, ->(story) { joins(:comments).where("comments.commentable_id = ? AND comments.commentable_type = ?", story.id, "story") }
+  scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = 1") }
 
   def self.find_or_create_for_facebook_oauth(auth)
     user = where(auth.info.slice(:email)).first_or_create do |user|
