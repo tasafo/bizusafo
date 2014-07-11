@@ -1,10 +1,24 @@
 require 'spec_helper'
 
 describe Story do
-  context "Dados válidos" do
-    it { should_not allow_value("nao é uma url").for :url }
+  context "Valid data" do
+    it { should_not allow_value("is not a url").for :url }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:url) }
+  end
+
+  describe "add_positive_rating" do
+    xit "adds positive rating to story"
+    xit "increments story rating_counter"
+    xit "notifies when rating is added successfully"
+    xit "does not notify when rating is not saved"
+  end
+
+  describe "add_negative_rating" do
+    xit "adds negative rating to story"
+    xit "decrements story rating_counter"
+    xit "notifies when rating is added successfully"
+    xit "does not notify when rating is not saved"
   end
 
   describe "rated_by?" do

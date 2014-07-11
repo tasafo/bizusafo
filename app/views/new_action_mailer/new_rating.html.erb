@@ -1,0 +1,26 @@
+<p>
+  Olá <%= @recipient.username %>!
+</p>
+
+<p>
+  Seu Bizu recebeu um novo voto de <%= @rater.username %>!
+</p>
+
+<p>
+  Veja seu Bizu aqui:
+</p>
+
+<p>
+  <%= link_to @story.description, @story %>
+</p>
+
+<p>
+  <u>Equipe BizuSafo</u>
+</p>
+
+---
+
+<p>
+  Caso não deseje mais receber notificações por email quando alguém<br/>
+  votar no seu Bizu, por favor atualize suas preferências na <%= link_to "página de perfil", edit_user_registration_url %>.
+</p>

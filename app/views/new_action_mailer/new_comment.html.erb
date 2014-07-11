@@ -1,0 +1,30 @@
+<p>
+  Olá <%= @recipient.username %>!
+</p>
+
+<p>
+  Você recebeu um novo comentário de <%= @author.username %>!
+</p>
+
+<p>
+  "<%= @comment.text %>"
+</p>
+
+<p>
+  Responda ao comentário aqui:
+</p>
+
+<p>
+  <%= link_to @commentable.description, @commentable %>
+</p>
+
+<p>
+  <u>Equipe BizuSafo</u>
+</p>
+
+---
+
+<p>
+  Caso não deseje mais receber notificações por email quando alguém<br/>
+  comenta no seu Bizu, por favor atualize suas preferências na <%= link_to "página de perfil", edit_user_registration_url %>.
+</p>

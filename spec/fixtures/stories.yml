@@ -2,6 +2,7 @@ how_to:
   url: http://how-to-develop-in-ruby.com
   description: How to develop in
   rating_counter: 5
+  user: john
 
 top_tips:
   url: http://top-ruby-tips.com
