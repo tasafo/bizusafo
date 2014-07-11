@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   validates :username, :email, presence: true
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   before_create :build_notification_setting
 
   scope :commented_on_story, ->(story) { joins(:comments).where("comments.commentable_id = ? AND comments.commentable_type = ?", story.id, "story") }
-  scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = 1") }
+  scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = ?", true) }
 
   def self.find_or_create_for_facebook_oauth(auth)
     user = where(auth.info.slice(:email)).first_or_create do |user|
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   def self.update_facebook_user_info(user, auth)
     user.update_attributes(
-      facebook_image: auth.info.image, 
+      facebook_image: auth.info.image,
       provider: auth.provider,
       uid: auth.uid,
       name: auth.info.name)
