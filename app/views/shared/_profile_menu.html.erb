@@ -1,0 +1,28 @@
+<div id="main-menu">
+  <div class="menu-btn-actions">
+    <section>
+      <div class="row">
+        <div class="col-md-3">
+          <p><%= image_tag avatar_url(current_user), class: "user-photo" %></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <strong>Username:</strong>
+            <%= current_user.username %>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <%= current_user.email %>
+          </p>
+          <p>
+            <strong><%= current_user.stories.count %> bizuuus!</strong>
+          </p>
+        </div>
+    </section>
+    <div class="menu-links-actions">
+      <%= link_to "Novo Bizuuu!", new_story_path, class: "btn btn-default" %>
+      <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn btn-default" %>
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

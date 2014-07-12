@@ -20,7 +20,7 @@
             <% params[:tags].split(",").map(&:strip).each do |tag| %>
               <span class="label label-primary"><%= tag %></span>
             <% end %>
-            <%= link_to "remover tags", root_path(order: params[:order], filter: params[:filter]) %>
+            <%= link_to "remover tags", current_filtered_url(order: params[:order], filter: params[:filter]) %>
           </li>
         <% else %>
           <li>

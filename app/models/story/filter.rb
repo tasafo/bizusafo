@@ -6,10 +6,10 @@ class Story::Filter
 
   attr_reader :stories, :params
 
-  def filter(params)
+  def filter(params, stories=Story)
     @params = params
 
-    @stories = Story.page @params[:page]
+    @stories = stories.page @params[:page]
     @stories = @stories.tagged_with(splited_tags(@params[:tags])) if @params[:tags].present?
     @stories = @stories.send(@params[:order] ||= DEFAULT_FILTERS[:order])
     @stories = @stories.send(@params[:filter] ||= DEFAULT_FILTERS[:filter])
