@@ -67,6 +67,6 @@ module StoriesHelper
   end
 
   def current_filtered_url(query)
-    url_for :only_path => false, :params => { filter: query[:filter], order: query[:order] }
+    url_for :only_path => false, :params => { filter: query[:filter], order: query[:order], tags: query[:tags] }
   end
 end
