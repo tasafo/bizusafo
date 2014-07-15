@@ -1,22 +1,25 @@
 <div id="main-menu">
   <div class="menu-btn-actions">
-    <section>
+    <section id="profile-info">
       <div class="row">
-        <div class="col-md-1">
-          <p><%= image_tag avatar_url(current_user), class: "user-photo" %></p>
-        </div>
-        <div class="col-md-11">
-          <p>
-            <strong>Username:</strong>
-            <%= current_user.username %>
-          </p>
-          <p>
-            <strong>Email:</strong>
-            <%= current_user.email %>
-          </p>
-          <p>
-            <strong><%= current_user.stories.count %> bizuuus!</strong>
-          </p>
+        <div class="col-md-12">
+          <article>
+            <%= image_tag avatar_url(current_user), class: "user-photo" %>
+          </article>
+
+          <article>
+            <p>
+              <strong><%= t("activerecord.attributes.user.username") %>:</strong>
+              <span><%= current_user.username %></span>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <span><%= current_user.email %></span>
+            </p>
+            <p>
+              <strong><%= current_user.stories.count %> bizuuus!</strong>
+            </p>
+          </article>
         </div>
     </section>
     <div class="menu-links-actions">

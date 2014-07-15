@@ -1,0 +1,10 @@
+#profile-info {
+  article {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  article + article {
+    margin-left: 20px;
+  }
+}
