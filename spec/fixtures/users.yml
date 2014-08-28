@@ -1,6 +1,7 @@
 john:
   username: john_doe
   email: johndow@gmail.com
+  auth_token: c49ba4998be47d7b9ab510b1cff60af2
 
 amanda:
   username: amanda

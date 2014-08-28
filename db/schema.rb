@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709215138) do
+ActiveRecord::Schema.define(version: 20140828183113) do
 
   create_table "comments", force: true do |t|
     t.integer  "author_id"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20140709215138) do
     t.string   "uid"
     t.string   "facebook_image"
     t.string   "name"
+    t.string   "auth_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
