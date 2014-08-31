@@ -16,6 +16,10 @@ describe Api::V1::StoriesController do
     ActionController::HttpAuthentication::Token.encode_credentials(token)
   end
 
+  before do
+    @request.headers["ACCEPT"] = Mime::JSON
+  end
+
   describe "POST create" do
     context "with valid authentication" do
       before do
@@ -25,7 +29,7 @@ describe Api::V1::StoriesController do
       context "with valid params" do
         it "creates new story" do
           expect {
-            post :create, story: valid_params, format: :json
+            post :create, story: valid_params
           }.to change{ Story.count }.by(1)
 
           expect(Story.last.user).to eql user
@@ -37,7 +41,7 @@ describe Api::V1::StoriesController do
       context "with invalid params" do
         it "responds unprocesses entity" do
           expect {
-            post :create, story: invalid_params, format: :json
+            post :create, story: invalid_params
           }.to change{ Story.count }.by(0)
 
           expect(response.status).to eql 422
@@ -53,7 +57,7 @@ describe Api::V1::StoriesController do
       it "responds unauthorized" do
         expect {
           @request.headers["HTTP_AUTHORIZATION"] = token_header("wrong token")
-          post :create, story: valid_params, format: :json
+          post :create, story: valid_params
         }.to change{ Story.count }.by(0)
 
         expect(response.status).to eql 401

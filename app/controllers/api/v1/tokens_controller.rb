@@ -17,11 +17,11 @@ class Api::V1::TokensController < ApiController
     end
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:email, :password)
   end
-
-  private
 
   def generate_auth_token
     loop do

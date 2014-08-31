@@ -4,6 +4,10 @@ describe Api::V1::TokensController do
   fixtures :users
 
   let(:user) { users(:john) }
+  
+  before do
+    @request.headers["ACCEPT"] = Mime::JSON
+  end
 
   describe "POST create" do
     context "when credentials match" do
@@ -18,7 +22,7 @@ describe Api::V1::TokensController do
 
           expect(user.auth_token).to be_blank
 
-          post :create, user: { email: user.email, password: "12345678" }, format: :json
+          post :create, user: { email: user.email, password: "12345678" }
           
           expect(response.status).to eql 200
           expect(user.reload.auth_token).to be_present
@@ -30,7 +34,7 @@ describe Api::V1::TokensController do
         it "returns token" do
           old_token = user.auth_token
 
-          post :create, user: { email: user.email, password: "12345678" }, format: :json
+          post :create, user: { email: user.email, password: "12345678" }
           
           expect(response.status).to eql 200
           expect(JSON.parse(response.body)["token"]).to eql old_token
@@ -40,14 +44,14 @@ describe Api::V1::TokensController do
 
     context "when credentials do not match" do
       it "with wrong password responds unauthorized" do
-        post :create, user: { email: user.email, password: "wrongPass" }, format: :json
+        post :create, user: { email: user.email, password: "wrongPass" }
       
         expect(response.status).to eql 401
         expect(response.body).to be_blank
       end
 
       it "with wrong email responds unauthorized" do
-        post :create, user: { email: "wrong@email.com", password: "12345678" }, format: :json
+        post :create, user: { email: "wrong@email.com", password: "12345678" }
       
         expect(response.status).to eql 401
         expect(response.body).to be_blank
