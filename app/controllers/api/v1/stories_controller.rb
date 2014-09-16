@@ -3,6 +3,7 @@ class Api::V1::StoriesController < ApiController
 
   def create
     @story = @user.stories.build(new_story_params)
+    @story.comments.build(text: params[:story][:comment_text], author: @user) if params[:story][:comment_text]
 
     respond_to do |format|
       if @story.save
@@ -21,7 +22,7 @@ class Api::V1::StoriesController < ApiController
 
   def authenticate
     authenticate_token || render_unauthorized
-  end 
+  end
 
   def authenticate_token
     authenticate_with_http_token do |token, options|
@@ -32,6 +33,6 @@ class Api::V1::StoriesController < ApiController
   def render_unauthorized
     respond_to do |format|
       format.json { render json: "Bad credentials", status: 401 }
-    end  
+    end
   end
 end

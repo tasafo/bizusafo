@@ -5,7 +5,8 @@ describe Api::V1::StoriesController do
 
   let(:valid_params) do
     { url: "http://google.com",
-      description: "Search on google" }
+      description: "Search on google",
+      comment_text: { text: "New comment" } }
   end
 
   let(:invalid_params) { { url: nil, description: nil } }
@@ -36,6 +37,13 @@ describe Api::V1::StoriesController do
           expect(response.status).to eql 201
           expect(JSON.parse(response.body)["url"]).to eql valid_params[:url]
         end
+      end
+
+      it "saves comment with current user as author" do
+        post :create, story: valid_params
+
+        comment = Story.last.comments.last
+        expect(comment.author).to eql user
       end
 
       context "with invalid params" do
