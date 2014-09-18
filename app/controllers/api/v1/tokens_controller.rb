@@ -5,7 +5,7 @@ class Api::V1::TokensController < ApiController
 
     if user && user.auth_token.blank?
       user.auth_token = generate_auth_token
-      user.save
+      user.save!
     end
 
     respond_to do |format|
