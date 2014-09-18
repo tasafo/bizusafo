@@ -11,6 +11,8 @@
     formats:
       default: ! '%d/%m/%Y - %H:%M'
 
+  download_extension: "Instale nossa extensão para o Chrome!"
+
   notification_setting:
     legend: "Preferências de Notificações"
     update: "Preferências atualizadas com sucesso!"
