@@ -15,3 +15,9 @@ ENV['SENDGRID_USERNAME']
 ENV['SENDGRID_PASSWORD']
 
 ex: heroku config:set SENDGRID_USERNAME=8N029N81 SENDGRID_PASSWORD=9s83109d3+583493190
+
+3. Configure o Google Analytics com variáveis de ambiente: (opcional)
+
+ENV['GOOGLE_ANALYTICS_ID']
+
+ex: heroku config:set GOOGLE_ANALYTICS_ID=UA-165967323-14
