@@ -3,12 +3,16 @@
     <div class="col-md-3">
       <h1><%= link_to "BizuSafo", root_path %></h1>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
       <h1>
         <small>
           <%= link_to "links compartilhados", root_path %>
         </small>
       </h1>
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs" id="extension">
+      <%= link_to t(:download_extension), "https://chrome.google.com/webstore/detail/bizusafo/egcodpfgnhacifeonmhfpgnbddalnlck", target: "_blank" %>
+      <%= image_tag "chrome_icon.png" %>
     </div>
   </div>
 </div>
