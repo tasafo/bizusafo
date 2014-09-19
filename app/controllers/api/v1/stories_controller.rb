@@ -3,7 +3,7 @@ class Api::V1::StoriesController < ApiController
 
   def create
     @story = @user.stories.build(new_story_params)
-    @story.comments.build(text: params[:story][:comment_text], author: @user) if params[:story][:comment_text]
+    @story.comments.build(text: params[:story][:comment_text], author: @user) if params[:story][:comment_text].present?
 
     respond_to do |format|
       if @story.save
