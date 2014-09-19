@@ -39,6 +39,15 @@ describe Api::V1::StoriesController do
         end
       end
 
+      context "without comment text" do
+        it "saves story without errors" do
+          post :create, story: valid_params.merge(comment_text: "")
+
+          expect(Story.last.comments).to be_empty
+          expect(response.status).to eql 201
+        end
+      end
+
       it "saves comment with current user as author" do
         post :create, story: valid_params
 
