@@ -35,7 +35,7 @@
     <div class="col-md-6 time-container">
       <%= image_tag avatar_url(story.user), class: "user-photo" %>
       <span>
-        <%= story.user.username %> <strong>em</strong> <%= l story.created_at %>
+        <%= link_to story.user.username, profile_path(story.user) %> <strong>em</strong> <%= l story.created_at %>
         <% if story.user == current_user %>
           |
           <%= link_to "editar", edit_story_path(story) %>

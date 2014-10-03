@@ -8,7 +8,7 @@ Bizusafo::Application.routes.draw do
     end
   end
 
-  resource :profile, only: :show
+  resources :profiles, only: :show
 
   resource :notification_setting, only: :update
 

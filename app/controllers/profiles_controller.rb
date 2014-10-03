@@ -1,9 +1,8 @@
 class ProfilesController < ApplicationController
   layout 'profile'
 
-  before_action :authenticate_user!
-
   def show
-    @stories = Story::Filter.new.filter(params, current_user.stories)
+    @user = User.find params[:id]
+    @stories = Story::Filter.new.filter(params, @user.stories)
   end
 end

@@ -4,20 +4,20 @@
       <div class="row">
         <div class="col-md-12">
           <article>
-            <%= image_tag avatar_url(current_user), class: "user-photo" %>
+            <%= image_tag avatar_url(@user), class: "user-photo" %>
           </article>
 
           <article>
             <p>
               <strong><%= t("activerecord.attributes.user.username") %>:</strong>
-              <span><%= current_user.username %></span>
+              <span><%= @user.username %></span>
             </p>
             <p>
               <strong>Email:</strong>
-              <span><%= current_user.email %></span>
+              <span><%= @user.email %></span>
             </p>
             <p>
-              <strong><%= current_user.stories.count %> bizuuus!</strong>
+              <strong><%= @user.stories.count %> bizuuus!</strong>
             </p>
           </article>
         </div>
