@@ -1,0 +1,23 @@
+<section id="profile-info">
+  <div class="row">
+    <div class="col-md-12">
+      <article>
+        <%= image_tag avatar_url(@user), class: "user-photo" %>
+      </article>
+
+      <article>
+        <p>
+          <strong><%= t("activerecord.attributes.user.username") %>:</strong>
+          <span><%= @user.username %></span>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <span><%= @user.email %></span>
+        </p>
+        <p>
+          <strong><%= @user.stories.count %> bizuuus!</strong>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
