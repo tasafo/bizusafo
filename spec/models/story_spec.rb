@@ -75,6 +75,20 @@ describe Story do
     end
   end
 
+  describe "scope commented_by user" do
+    fixtures :comments
+    fixtures :stories
+    fixtures :users
+
+    it "returns stories commented by user" do
+      expect(Story.commented_by(users :john)).to include stories(:how_to)
+    end
+
+    it "does not return stories not commented by user" do
+      expect(Story.commented_by(users :john)).to_not include stories(:best_coders)
+    end
+  end
+
   describe "filters orders stories" do
     fixtures :stories
 

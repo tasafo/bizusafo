@@ -17,4 +17,10 @@ class ProfilesController < ApplicationController
     @stories = Story::Filter.new.filter(params, Story.negative_by(@user))
     render :show
   end
+
+  def commented
+    @user = User.find params[:profile_id]
+    @stories = Story::Filter.new.filter(params, Story.commented_by(@user))
+    render :show
+  end
 end

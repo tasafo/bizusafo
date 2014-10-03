@@ -13,4 +13,9 @@ module ProfilesHelper
     return unless controller_name == "profiles"
     action_name == "negatives" ? "active" : ""
   end
+
+  def profile_comment_tab_class
+    return unless controller_name == "profiles"
+    action_name == "commented" ? "active" : ""
+  end
 end
