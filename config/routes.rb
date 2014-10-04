@@ -8,7 +8,11 @@ Bizusafo::Application.routes.draw do
     end
   end
 
-  resource :profile, only: :show
+  resources :profiles, only: :show do
+    get "/favorites", action: :favorites, as: :favorites
+    get "/negatives", action: :negatives, as: :negatives
+    get "/commented", action: :commented, as: :commented
+  end
 
   resource :notification_setting, only: :update
 

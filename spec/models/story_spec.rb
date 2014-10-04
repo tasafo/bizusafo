@@ -39,6 +39,56 @@ describe Story do
     end
   end
 
+  describe "scope favorited_by user" do
+    fixtures :stories
+    fixtures :ratings
+    fixtures :users
+
+    it "returns stories rated posivite by user" do
+      expect(Story.favorited_by(users :john)).to include stories(:how_to)
+    end
+
+    it "does not return stories rated negative by user" do
+      expect(Story.favorited_by(users :john)).to_not include stories(:best_coders)
+    end
+
+    it "does not return stories not rated by user" do
+      expect(Story.favorited_by(users :john)).to_not include stories(:top_tips)
+    end
+  end
+
+  describe "scope negative_by user" do
+    fixtures :stories
+    fixtures :ratings
+    fixtures :users
+
+    it "returns stories rated negative by user" do
+      expect(Story.negative_by(users :john)).to include stories(:best_coders)
+    end
+
+    it "does not return stories rated positive by user" do
+      expect(Story.negative_by(users :john)).to_not include stories(:how_to)
+    end
+
+    it "does not return stories not rated by user" do
+      expect(Story.negative_by(users :john)).to_not include stories(:top_tips)
+    end
+  end
+
+  describe "scope commented_by user" do
+    fixtures :comments
+    fixtures :stories
+    fixtures :users
+
+    it "returns stories commented by user" do
+      expect(Story.commented_by(users :john)).to include stories(:how_to)
+    end
+
+    it "does not return stories not commented by user" do
+      expect(Story.commented_by(users :john)).to_not include stories(:best_coders)
+    end
+  end
+
   describe "filters orders stories" do
     fixtures :stories
 

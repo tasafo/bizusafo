@@ -9,6 +9,9 @@ class Story < ActiveRecord::Base
   scope :by_rating, -> { order(rating_counter: :desc) }
   scope :by_current_month, -> { where("stories.created_at > ?", 30.days.ago) }
   scope :by_current_week, -> { where("stories.created_at > ?", 7.days.ago) }
+  scope :favorited_by, -> (user) { includes(:ratings).where("ratings.user_id" => user.id, "ratings.positive" => true) }
+  scope :negative_by, -> (user) { includes(:ratings).where("ratings.user_id" => user.id, "ratings.positive" => false) }
+  scope :commented_by, -> (user) { includes(:comments).where("comments.author_id" => user.id) }
 
   belongs_to :user
   has_many :ratings, as: :rateable
