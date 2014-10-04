@@ -1,10 +1,10 @@
 <div class="comment-container">
   <div class="comment-author">
     <aside>
-      <%= image_tag avatar_url(comment.author), class: "user-photo" %>
+      <%= link_to image_tag(avatar_url(comment.author), class: "user-photo"), profile_path(comment.author) %>
     </aside>
     <p>
-      <%= comment.username %> <b>em</b> <%= l comment.created_at %><br />
+      <%= link_to comment.username, profile_path(comment.author) %> <b>em</b> <%= l comment.created_at %><br />
     </p>
   </div>
   <p><%= comment.text %></p>

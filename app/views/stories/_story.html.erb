@@ -33,7 +33,7 @@
     </div>
 
     <div class="col-md-6 time-container">
-      <%= image_tag avatar_url(story.user), class: "user-photo" %>
+      <%= link_to image_tag(avatar_url(story.user), class: "user-photo"), profile_path(story.user) %>
       <span>
         <%= link_to story.user.username, profile_path(story.user) %> <strong>em</strong> <%= l story.created_at %>
         <% if story.user == current_user %>
