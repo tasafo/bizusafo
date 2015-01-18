@@ -15,6 +15,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'acts-as-taggable-on'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'

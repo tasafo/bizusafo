@@ -3,22 +3,60 @@ require 'spec_helper'
 describe Story do
   context "Valid data" do
     it { should_not allow_value("is not a url").for :url }
+    it { should allow_value("").for :url }
     it { should validate_presence_of(:description) }
-    it { should validate_presence_of(:url) }
   end
 
-  describe "add_positive_rating" do
-    xit "adds positive rating to story"
-    xit "increments story rating_counter"
-    xit "notifies when rating is added successfully"
-    xit "does not notify when rating is not saved"
-  end
+  context "ratings" do
+    describe "add_positive_rating" do
+      fixtures :users
+      fixtures :stories
 
-  describe "add_negative_rating" do
-    xit "adds negative rating to story"
-    xit "decrements story rating_counter"
-    xit "notifies when rating is added successfully"
-    xit "does not notify when rating is not saved"
+      let!(:user) { users(:john) }
+      let!(:story) { stories(:how_to) }
+
+      it "adds positive rating to story" do
+        story.add_positive_rating! user
+
+        assert story.ratings.last.positive
+      end
+
+      it "increments story rating_counter" do
+        ratings_expected = story.rating_counter + 1
+
+        story.add_positive_rating! user
+
+        assert_equal story.rating_counter, ratings_expected
+      end
+
+      xit "notifies when rating is added successfully"
+      xit "does not notify when rating is not saved"
+    end
+
+    describe "add_negative_rating" do
+      fixtures :users
+      fixtures :stories
+
+      let!(:user) { users(:john) }
+      let!(:story) { stories(:how_to) }
+
+      it "adds negative rating to story" do
+        story.add_negative_rating! user
+
+        assert !story.ratings.last.positive
+      end
+
+      it "decrements story rating_counter" do
+        ratings_expected = story.rating_counter - 1
+
+        story.add_negative_rating! user
+
+        assert_equal story.rating_counter, ratings_expected
+      end
+
+      xit "notifies when rating is added successfully"
+      xit "does not notify when rating is not saved"
+    end
   end
 
   describe "rated_by?" do

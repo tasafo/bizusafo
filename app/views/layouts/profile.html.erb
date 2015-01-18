@@ -16,16 +16,18 @@
 
 <div class="container">
   <%= render "shared/header" %>
-
   <%= render "shared/flash_messages" %>
 
-  <%= render "shared/profile" %>
-
-  <%= render "shared/main_menu" %>
-
-  <%= render "shared/profile_menu" %>
-
-  <%= yield %>
+  <div class="row">
+    <div class="col-md-1 menu-btn-actions">
+      <%= render "shared/main_menu" %>
+    </div>
+    <div class="col-md-10 profile">
+      <%= render "shared/profile" %>
+      <%= render "shared/profile_menu" %>
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 </body>

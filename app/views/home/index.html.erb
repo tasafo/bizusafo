@@ -1,6 +1,8 @@
 <%= render "shared/story_filters" %>
 
-<%= paginate @stories %>
+<div class="center-block pagintation-center">
+  <%= paginate @stories %>
+</div>
 
 <% if @stories.any? %>
   <%= render partial: "stories/story", collection: @stories, locals: { show_comments: false } %>
@@ -10,4 +12,6 @@
   </div>
 <% end %>
 
-<%= paginate @stories %>
+<div class="center-block pagintation-center">
+  <%= paginate @stories %>
+</div>

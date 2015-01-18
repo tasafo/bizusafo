@@ -1,8 +1,8 @@
 class Story < ActiveRecord::Base
   acts_as_taggable
 
-  validates :url, format: { with: URI.regexp }
-  validates :description, :url, presence: true
+  validates :url, format: { with: URI.regexp }, allow_blank: true
+  validates :description, presence: true
 
   scope :timeline, -> { order(created_at: :desc) }
   scope :by_date, -> { order(created_at: :desc) }
@@ -26,21 +26,20 @@ class Story < ActiveRecord::Base
   end
 
   def add_positive_rating!(user)
-    notify = false
-    transaction do
-      self.ratings.create(:user => user, :positive => true)
-      self.rating_counter = self.rating_counter + 1
-      notify = save
-    end
-    Notifier::NewRating.new(rater: user, story: self).notify_all! if notify
+    add_rating! user, true
   end
 
-
   def add_negative_rating!(user)
+    add_rating! user, false
+  end
+
+  def add_rating!(user, positive)
     notify = false
     transaction do
-      self.ratings.create(:user => user, :positive => false)
-      self.rating_counter = self.rating_counter - 1
+      self.ratings.create(:user => user, :positive => positive)
+      self.rating_counter = self.rating_counter + 1 if positive
+      self.rating_counter = self.rating_counter - 1 if not positive
+
       notify = save
     end
     Notifier::NewRating.new(rater: user, story: self).notify_all! if notify
