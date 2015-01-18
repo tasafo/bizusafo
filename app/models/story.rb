@@ -1,8 +1,8 @@
 class Story < ActiveRecord::Base
   acts_as_taggable
 
-  validates :url, format: { with: URI.regexp }
-  validates :description, :url, presence: true
+  validates :url, format: { with: URI.regexp }, allow_blank: true
+  validates :description, presence: true
 
   scope :timeline, -> { order(created_at: :desc) }
   scope :by_date, -> { order(created_at: :desc) }

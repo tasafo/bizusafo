@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Story do
   context "Valid data" do
     it { should_not allow_value("is not a url").for :url }
+    it { should allow_value("").for :url }
     it { should validate_presence_of(:description) }
-    it { should validate_presence_of(:url) }
   end
 
   context "ratings" do

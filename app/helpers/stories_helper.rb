@@ -57,6 +57,12 @@ module StoriesHelper
     story.user != current_user && !rated
   end
 
+  def story_link(story)
+    url = story.url.blank? ? story_url(story) : story.url
+
+    link_to truncate(story.description, length: 300), url, target: "_blank"
+  end
+
   def story_filter_handler(text, filter_type, filter)
     css_class = "label label-primary" if params[filter_type] && params[filter_type].to_sym == filter
 
