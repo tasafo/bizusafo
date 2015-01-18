@@ -26,7 +26,5 @@ module Bizusafo
     config.i18n.enforce_available_locales = false
     config.i18n.available_locales = ["en", "pt-BR"]
     config.i18n.default_locale = :"pt-BR"
-
-    config.serve_static_assets = true
   end
 end
