@@ -1,15 +1,22 @@
-<div id="main-menu">
-  <div class="menu-btn-actions">
-    <% if user_signed_in? %>
-      <p>Olá <strong><%= current_user.username %></strong>!</p>
-      <div class="menu-links-actions">
-        <%= link_to "Novo Bizuuu!", new_story_path, class: "btn btn-default" %>
-        <%= link_to "Perfil", profile_path(current_user), class: "btn btn-default" %>
-        <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
-      </div>
-    <% else %>
-      <%= link_to "Entrar", new_user_session_path, class: "btn btn-default" %>
-      <%= link_to "Criar Conta", new_user_registration_path, class: "btn btn-default" %>
-    <% end %>
-  </div>
-</div>
+<%= link_to root_path, class: "btn btn-lg btn-default", title: "Bizuuus" do %>
+  <span class="glyphicon glyphicon-th-list"></span>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to profile_path(current_user), class: "btn btn-lg btn-default", title: "Perfil" do %>
+    <span class="glyphicon glyphicon-user"></span>
+  <% end %>
+  <%= link_to new_story_path, class: "btn btn-lg btn-default", title: "Novo Bizuuu!!!" do %>
+    <span class="glyphicon glyphicon-bullhorn"></span>
+  <% end %>
+  <%= link_to destroy_user_session_path, class: "btn btn-lg btn-default", title: "Sair", :method => :delete do %>
+    <span class="glyphicon glyphicon-off"></span>
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path, class: "btn btn-lg btn-default", title: "Entrar" do %>
+    <span class="glyphicon glyphicon-user"></span>
+  <% end %>
+  <%= link_to new_user_registration_path, class: "btn btn-lg btn-default", title: "Cadastre-se" do %>
+    <span class="glyphicon glyphicon-log-in"></span>
+  <% end %>
+<% end %>

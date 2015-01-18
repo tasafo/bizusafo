@@ -16,13 +16,15 @@
 
 <div class="container">
   <%= render "shared/header" %>
-
   <%= render "shared/flash_messages" %>
-
-  <%= render "shared/main_menu" %>
-
-  <%= yield %>
-
+  <div class="row">
+    <div class="col-md-1 menu-btn-actions">
+      <%= render "shared/main_menu" %>
+    </div>
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 <%= render "shared/google_analytics" %>
