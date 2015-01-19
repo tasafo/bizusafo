@@ -57,10 +57,12 @@ module StoriesHelper
     story.user != current_user && !rated
   end
 
-  def story_link(story)
+  def story_link(story, full_description)
     url = story.url.blank? ? story_url(story) : story.url
 
-    link_to truncate(story.description, length: 300), url, target: "_blank"
+    description = full_description ? story.description : truncate(story.description, length: 300)
+
+    link_to description, url, target: "_blank"
   end
 
   def story_icon(story)

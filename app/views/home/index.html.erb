@@ -5,7 +5,7 @@
 </div>
 
 <% if @stories.any? %>
-  <%= render partial: "stories/story", collection: @stories, locals: { show_comments: false } %>
+  <%= render partial: "stories/story", collection: @stories, locals: { show_comments: false, full_description: false } %>
 <% else %>
   <div class="well">
     <%= t("story.no_story") %>
