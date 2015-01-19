@@ -1,6 +1,9 @@
 <div class="story-container">
   <div class="row">
-    <div class="col-md-9 story-description">
+    <div class="col-md-1 story-icon">
+      <%= story_icon(story) %>
+    </div>
+    <div class="col-md-8 story-description">
       <div class="lead">
         <%= story_link(story) %>
       </div>
@@ -18,7 +21,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 comments-status">
+    <div class="col-md-6 col-md-offset-1 comments-status">
       <div class="addthis_toolbox addthis_default_style"
             addthis:url="<%= story_url(story) %>"
             addthis:title="olha o bizuuuu!"
@@ -32,7 +35,7 @@
       </div>
     </div>
 
-    <div class="col-md-6 time-container">
+    <div class="col-md-5 time-container">
       <%= link_to image_tag(avatar_url(story.user), class: "user-photo"), profile_path(story.user) %>
       <span>
         <%= link_to story.user.username, profile_path(story.user) %> <strong>em</strong> <%= l story.created_at %>

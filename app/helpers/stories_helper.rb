@@ -63,6 +63,14 @@ module StoriesHelper
     link_to truncate(story.description, length: 300), url, target: "_blank"
   end
 
+  def story_icon(story)
+    if story.url.blank?
+      content_tag :span, nil, class:"glyphicon glyphicon-font"
+    else
+      content_tag :span, nil, class:"glyphicon glyphicon-link"
+    end
+  end
+
   def story_filter_handler(text, filter_type, filter)
     css_class = "label label-primary" if params[filter_type] && params[filter_type].to_sym == filter
 
