@@ -1,7 +1,9 @@
 <div class="story-container">
   <div class="row">
     <div class="col-md-1 story-icon">
-      <%= story_icon(story) %>
+      <%= link_to story_url(story) do %>
+        <%= story_icon(story) %>
+      <% end %>
     </div>
     <div class="col-md-8 story-description">
       <div class="lead">

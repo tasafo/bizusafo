@@ -58,11 +58,9 @@ module StoriesHelper
   end
 
   def story_link(story, full_description)
-    url = story.url.blank? ? story_url(story) : story.url
-
     description = full_description ? story.description : truncate(story.description, length: 300)
 
-    link_to description, url, target: "_blank"
+    link_to description, story_link_url(story), target: "_blank"
   end
 
   def story_icon(story)
@@ -71,6 +69,10 @@ module StoriesHelper
     else
       content_tag :span, nil, class:"glyphicon glyphicon-link"
     end
+  end
+
+  def story_link_url(story)
+    story.url.blank? ? story_url(story) : story.url
   end
 
   def story_filter_handler(text, filter_type, filter)

@@ -69,3 +69,19 @@
 .story-icon {
   font-size: 35px;
 }
+
+.story-icon a:link,
+.story-icon a:visited,
+.story-icon a:hover,
+.story-icon a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.story-description .lead a:link,
+.story-description .lead a:visited,
+.story-description .lead a:hover,
+.story-description .lead a:active {
+  color: #555555;
+  text-decoration: none;
+}
