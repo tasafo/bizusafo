@@ -1,15 +1,14 @@
 <nav id="story_filters" class="row">
   <div class="col-lg-12">
-    <div class="filters">
-      <span>Ordenar por:</span>
-      <ul>
-        <li><%= story_filter_handler "novos", :order, :by_date %></li>
-        <li><%= story_filter_handler "votos", :order, :by_rating %></li>
-        <li>|</li>
-        <li><%= story_filter_handler "todos",       :filter, :timeline %></li>
-        <li><%= story_filter_handler "este mês",    :filter, :by_current_month %></li>
-        <li><%= story_filter_handler "esta semana", :filter, :by_current_week %></li>
-      </ul>
+    <div class="filters form-inline">
+        <div class="form-group">
+          <span>Ordenar por:</span>
+          <%= select_tag :order, options_for_select([["novos", :by_date], ["votos", :by_rating]], selected_filter("order")), class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <span>Filtrar por:</span>
+          <%= select_tag :filter, options_for_select([["todos", :timeline], ["este mês", :by_current_month], ["esta semana", :by_current_week]], selected_filter("filter")), class: "form-control" %>
+        </div>
     </div>
 
     <div class="filters">

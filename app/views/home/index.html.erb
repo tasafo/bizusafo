@@ -1,11 +1,9 @@
 <%= render "shared/story_filters" %>
 
-<div class="center-block pagintation-center">
-  <%= paginate @stories %>
-</div>
-
 <% if @stories.any? %>
-  <%= render partial: "stories/story", collection: @stories, locals: { show_comments: false, full_description: false } %>
+  <div id="stories-container">
+    <%= render partial: "stories/story", collection: @stories, locals: { show_comments: false, full_description: false } %>
+  </div>
 <% else %>
   <div class="well">
     <%= t("story.no_story") %>
