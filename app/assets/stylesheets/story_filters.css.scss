@@ -1,4 +1,6 @@
 #story_filters {
+  margin-bottom: 20px;
+
   ul, li {
     display: inline-block;
   }
@@ -20,5 +22,9 @@
 
   div.filters {
     display: inline-block;
+  }
+
+  div.filters .form-group {
+    margin: 0 20px 0 0;
   }
 }

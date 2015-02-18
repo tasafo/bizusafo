@@ -2,9 +2,32 @@ $(document).ready(function() {
   $("span.positive-votes a").on("click", { signal: '+' }, ratingStory);
   $("span.negative-votes a").on("click", { signal: '-' }, ratingStory);
 
+  $(".filters select").on("change", filterStories);
+
   $('.sign-in-to-rate').popover({ html: true, container: "body" });
   $('.popover-trigger').popover({ container: "body" });
 });
+
+function filterStories(e){
+  e.preventDefault();
+
+  var filter = $(".filters select[name='filter']").val();
+  var order = $(".filters select[name='order']").val();
+  var tags = $(".filters input[name='tags']").val();
+
+  var data = {};
+
+  data["filter"] = filter;
+  data["order"] = order;
+
+  if(tags != "") {
+    data["tags"] = $(".filters input[name='tags']").val();
+  }
+
+  var params = $.param(data);
+
+  document.location = "http://localhost:3000/?" + params;
+}
 
 function ratingStory(e){
 
@@ -38,11 +61,11 @@ function ratingStory(e){
       var ratingHandlers = $(_this).closest(".story-ratings").children(".ratings-count");
 
       $.each(ratingHandlers, function( index, handler ) {
-        
+
         var text = $(handler).text();
 
         $(handler).text(text);
-      
+
       });
     }
   });

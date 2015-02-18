@@ -87,4 +87,12 @@ module StoriesHelper
   def current_filtered_url(query)
     url_for :only_path => false, :params => { filter: query[:filter], order: query[:order], tags: query[:tags] }
   end
+
+  def selected_filter(filter_type)
+    value = params[filter_type.to_sym]
+
+    return value.to_sym if value
+    return :by_current_week if filter_type == "filter" and value.nil?
+    return :by_date if filter_type == "order" and value.nil?
+  end
 end
