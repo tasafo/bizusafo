@@ -26,7 +26,7 @@ function filterStories(e){
 
   var params = $.param(data);
 
-  document.location = "http://localhost:3000/?" + params;
+  document.location = window.location.origin + "/?" + params;
 }
 
 function ratingStory(e){
