@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Notifier::NewRating do
   describe "add_comment!" do
@@ -19,7 +19,7 @@ describe Notifier::NewRating do
     context "when the owner of the commentable does not allows new_comment notifications" do
       it "does not deliver any email" do
         users(:john).notification_setting.update_attributes(new_rating: false)
-        expect do 
+        expect do
           rate
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
       end
