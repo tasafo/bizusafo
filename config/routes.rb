@@ -4,7 +4,7 @@ Bizusafo::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :token, only: :create
-      resources :stories, only: :create
+      resources :stories, only: [:create, :index]
     end
   end
 

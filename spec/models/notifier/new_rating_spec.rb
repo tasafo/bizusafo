@@ -2,10 +2,6 @@ require "rails_helper"
 
 describe Notifier::NewRating do
   describe "add_comment!" do
-    fixtures(:users)
-    fixtures(:stories)
-    fixtures(:comments)
-    fixtures(:notification_settings)
 
     let(:rate) do
       Notifier::NewRating.new(story: stories(:how_to), rater: users(:amanda)).notify_all!

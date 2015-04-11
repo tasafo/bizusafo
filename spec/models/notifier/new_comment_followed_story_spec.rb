@@ -2,10 +2,6 @@ require "rails_helper"
 
 describe Notifier::NewCommentFollowedStory do
   describe "add_comment!" do
-    fixtures(:users)
-    fixtures(:stories)
-    fixtures(:comments)
-    fixtures(:notification_settings)
 
     let(:comment) do
       comment = Comment.new
