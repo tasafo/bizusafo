@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.1'
 gem 'rails-i18n'
 gem 'mysql2'
 gem 'sass-rails', '~> 4.0.3'
@@ -23,8 +23,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 end
 
 group :production do
