@@ -18,5 +18,6 @@
 coverage
 app/views/.DS_Store
 
+.rspec
 .rvmrc
 .DS_Store
