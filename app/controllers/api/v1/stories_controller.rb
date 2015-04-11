@@ -1,6 +1,15 @@
 class Api::V1::StoriesController < ApiController
   before_filter :authenticate
 
+  def index
+    @stories = Story.all
+
+    respond_to do |format|
+      message = @stories.present? ? "" : I18n.t("story.no_story")
+      format.json {render json: {stories: @stories, message: message}}
+    end
+  end
+
   def create
     @story = @user.stories.build(new_story_params)
     @story.comments.build(text: params[:story][:comment_text], author: @user) if params[:story][:comment_text].present?
