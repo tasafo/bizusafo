@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.2.1'
 
 gem 'rails', '4.1.1'
 gem 'rails-i18n'
@@ -10,7 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
-gem 'thin'
+
 gem 'devise'
 gem 'kaminari'
 gem 'omniauth-facebook'
@@ -28,7 +28,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.18.1'  # previous version, 0.17.1, wasn't installing in ruby 2.2
   gem 'rails_12factor'
 end
 
