@@ -26,7 +26,7 @@ function filterStories(e){
 
   var params = $.param(data);
 
-  document.location = window.location.origin + "/?" + params;
+  document.location = window.location.href + "?" + params;
 }
 
 function ratingStory(e){

@@ -5,7 +5,7 @@ class Notifier::NewRating
   end
 
   def notify_all!
-    NewActionMailer.new_rating(@rater, @story, recipients).deliver if recipients.present?
+    NewActionMailer.new_rating(@rater, @story, recipients).deliver_now if recipients.present?
   end
 
   def recipients

@@ -1,11 +1,7 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Notifier::NewComment do
   describe "add_comment!" do
-    fixtures(:users)
-    fixtures(:stories)
-    fixtures(:comments)
-    fixtures(:notification_settings)
 
     let(:comment) do
       comment = Comment.new
@@ -20,7 +16,7 @@ describe Notifier::NewComment do
     context "when the owner of the commentable does not allows new_comment notifications" do
       it "does not deliver any email" do
         users(:john).notification_setting.update_attributes(new_comment: false)
-        expect do 
+        expect do
           comment
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
       end

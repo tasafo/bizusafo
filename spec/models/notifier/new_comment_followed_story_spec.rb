@@ -1,11 +1,7 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Notifier::NewCommentFollowedStory do
   describe "add_comment!" do
-    fixtures(:users)
-    fixtures(:stories)
-    fixtures(:comments)
-    fixtures(:notification_settings)
 
     let(:comment) do
       comment = Comment.new
@@ -30,7 +26,7 @@ describe Notifier::NewCommentFollowedStory do
     context "when the commenters do not allow new_comment_followed_story notifications" do
       it "does not deliver any email" do
         users(:victor).notification_setting.update_attributes(new_comment_followed_story: false)
-        expect do 
+        expect do
           comment
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
       end

@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Api::V1::StoriesController do
+describe Api::V1::StoriesController, type: :controller do
   let(:valid_params) do
     { url: "http://google.com",
       description: "Search on google",

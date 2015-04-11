@@ -6,7 +6,7 @@ class Notifier::NewComment
   end
 
   def notify_all!
-    NewActionMailer.new_comment(@author, @commentable, @comment, recipients).deliver if recipients.present?
+    NewActionMailer.new_comment(@author, @commentable, @comment, recipients).deliver_now if recipients.present?
   end
 
   def recipients
