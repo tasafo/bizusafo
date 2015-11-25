@@ -13,13 +13,14 @@ Bundler.require(*Rails.groups)
 
 module Bizusafo
   class Application < Rails::Application
-    
+
     config.encoding = "utf-8"
 
     config.time_zone = 'Brasilia'
-    
+
     config.i18n.enforce_available_locales = false
     config.i18n.available_locales = ["en", "pt-BR"]
     config.i18n.default_locale = :"pt-BR"
+    config.quiet_assets = true
   end
 end
