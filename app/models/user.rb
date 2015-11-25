@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = ?", true) }
 
   def self.find_or_create_for_facebook_oauth(auth)
-    user = where(auth.info.slice(:email)).first_or_create do |user|
+    user = where(auth.info.slice(:email).to_h).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
