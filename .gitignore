@@ -23,3 +23,4 @@ app/views/.DS_Store
 .DS_Store
 .ruby-gemset
 .ruby-version
+.env
