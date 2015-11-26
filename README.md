@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/tasafo/bizusafo/badges/gpa.svg)](https://codeclimate.com/github/tasafo/bizusafo)
+
 # Notícias da Comunidade
 
 1. Site oficial em [bizusafo.com.br](http://bizusafo.com.br)

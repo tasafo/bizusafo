@@ -17,9 +17,13 @@ gem 'omniauth-facebook'
 gem 'acts-as-taggable-on'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
+group :development do
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
+  gem 'quiet_assets'
+end
+
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -28,6 +32,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
 end
 
 group :production do
