@@ -9,6 +9,7 @@ class Notifier::NewRating
   end
 
   def recipients
-    @story.user if @story.user.notification_setting.new_rating
+    settings = @story.user.notification_setting
+    @story.user if settings.new_rating? && settings.every_event_report?
   end
 end

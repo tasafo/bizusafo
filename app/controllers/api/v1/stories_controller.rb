@@ -11,11 +11,19 @@ class Api::V1::StoriesController < ApiController
   end
 
   def create
-    @story = @user.stories.build(new_story_params)
-    @story.comments.build(text: params[:story][:comment_text], author: @user) if params[:story][:comment_text].present?
+    if params[:story][:comment_text].present?
+      story_with_comments = new_story_params.merge(
+        comments_attributes: {
+          "0" => {text: params[:story][:comment_text][:text], commentable_type: "Story", commentable_id: ""}
+        }
+      )
+    else
+      story_with_comments = new_story_params
+    end
+    @story = Story.create_story! user: @user, params: story_with_comments
 
     respond_to do |format|
-      if @story.save
+      if @story.persisted?
         format.json { render json: @story, status: 201 }
       else
         format.json { render json: @story.errors.full_messages, status: 422 }

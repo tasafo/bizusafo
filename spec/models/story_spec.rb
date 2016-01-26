@@ -7,6 +7,61 @@ describe Story do
     it { should validate_presence_of(:description) }
   end
 
+  describe "create_story!" do
+    fixtures(:users)
+    fixtures(:stories)
+    fixtures(:comments)
+    fixtures(:notification_settings)
+
+    let(:valid_story_params) {
+      {
+        description: "Description",
+        url: "http://google.com",
+        tag_list: "tag1, tag2",
+        comments_attributes: { "0" => { text: "Some comment" } }
+      }
+    }
+
+    let(:story) { Story.create_story! params: valid_story_params, user: users(:amanda)  }
+
+    it "creates a story with the given params" do
+      expect do
+        story
+      end.to change{Story.count}.by(1)
+    end
+
+    it "returns a new story" do
+      assert story.kind_of? Story
+    end
+
+    it "creates a story with first comment" do
+      expect do
+        story
+      end.to change{Comment.count}.by(1)
+
+      expect(users(:amanda).reload.comments.last.text).to eql "Some comment"
+    end
+
+    context "when story is created successfully" do
+      it "deliveries an email to every one listes to receive notifications" do
+        story
+
+        expect(ActionMailer::Base.deliveries.last.bcc.size).to eql 2
+        expect(ActionMailer::Base.deliveries.last.bcc).to include users(:john).email
+        expect(ActionMailer::Base.deliveries.last.bcc).to include users(:victor).email
+      end
+    end
+
+
+    context "when the comment is not created successfully" do
+      it "does not deliver any email" do
+        expect do
+          Story.create_story!(params: {}, user: User.first)
+        end.to change{ActionMailer::Base.deliveries.size}.by(0)
+      end
+    end
+  end
+
   context "ratings" do
     describe "add_positive_rating" do
       fixtures :users
@@ -132,7 +187,7 @@ describe Story do
 
     before do
       stories(:how_to).update_attribute :created_at, 25.days.ago
-      stories(:top_tips).update_attribute :created_at, Date.today
+      stories(:top_tips).update_attribute :created_at, 1.day.ago + 1.minute
       stories(:best_coders).update_attribute :created_at, 3.months.ago
     end
 
@@ -154,6 +209,8 @@ describe Story do
 
       assert stories.all.size > filtered_stories.size
 
+      expect(filtered_stories.size).to eql 2
+
       filtered_stories.each do |story|
         assert story.created_at > 30.days.ago
       end
@@ -165,8 +222,23 @@ describe Story do
 
       assert stories.all.size > filtered_stories.size
 
+      expect(filtered_stories.size).to eql 1
+
       filtered_stories.each do |story|
         assert story.created_at > 7.days.ago
+      end
+    end
+
+    it "by yesterday" do
+      stories = Story.all
+      filtered_stories = Story.by_yesterday
+
+      assert stories.all.size > filtered_stories.size
+
+      expect(filtered_stories.size).to eql 1
+
+      filtered_stories.each do |story|
+        assert story.created_at > 1.day.ago
       end
     end
   end

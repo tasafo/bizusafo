@@ -10,7 +10,9 @@ class Notifier::NewCommentFollowedStory
   end
 
   def recipients
-    recipients = User.commented_on_story(@commentable).receives_new_comment_followed_story.pluck(:email)
+    recipients = User.commented_on_story(@commentable)
+                      .receives_new_comment_followed_story
+                      .receives_every_event_report.pluck(:email)
     recipients.delete @commentable.user.email
     recipients.delete @author.email
     recipients.uniq
