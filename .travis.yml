@@ -5,7 +5,7 @@ rvm:
 services:
   - mysql
 before_script:
-  - cp config/database.yml.example config/database.yml
+  - cp config/database.yml.travis config/database.yml
   - mysql -e 'create database bizusafo_test;'
 script: xvfb-run -a bundle exec rspec
 addons:
