@@ -14,13 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-.ruby-version
 coverage
 app/views/.DS_Store
 
-.rspec
 .rvmrc
 .DS_Store
 .ruby-gemset
 .ruby-version
 .env
+config/database.yml
