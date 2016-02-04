@@ -8,8 +8,10 @@ top_tips:
   url: http://top-ruby-tips.com
   description: Top Ruby tips
   rating_counter: 2
+  user: john
 
 best_coders:
   url: http://best-ruby-coders.com
   description: Best Ruby Coders
   rating_counter: 3
+  user: john

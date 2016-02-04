@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-6">
     <legend>Perfil</legend>
-    
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", method: :put }) do |f| %>
-      
+
       <% if resource.errors.any? %>
         <div class="alert alert-danger">
           <a class="close" data-dismiss="alert">×</a>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br /> 
+        <%= f.label :current_password %> <i>(você precisa digitar sua senha atual para confirmar as alterações)</i><br />
         <i>Caso você tenha esquecido sua senha atual ou acessado com o Facebook, por favor, clique em "Sair" e tente recuperar a sua senha através de seu email</i>
         <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %><br />
       </div>
@@ -66,6 +66,11 @@
       <p>Desejo ser notificado por email sempre que alguém:</p>
 
       <div class="form-group">
+        <%= f.check_box :new_stories %>
+        <%= f.label :new_story, t("notification_setting.labels.new_stories") %>
+      </div>
+
+      <div class="form-group">
         <%= f.check_box :new_rating %>
         <%= f.label :new_rating, t("notification_setting.labels.new_rating") %>
       </div>
@@ -79,6 +84,31 @@
         <%= f.check_box :new_comment_followed_story %>
         <%= f.label :new_comment_followed_story, t("notification_setting.labels.new_comment_followed_story") %>
       </div>
+
+      <hr>
+
+      <p>Receber notificações:</p>
+
+      <div class="form-group">
+        <%= f.radio_button :report, "no_report" %>
+        <%= f.label :report, t("notification_setting.labels.no_report"), :value => "no_report" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.radio_button :report, "every_event" %>
+        <%= f.label :report, t("notification_setting.labels.every_event"), :value => "every_event" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.radio_button :report, "daily_report" %>
+        <%= f.label :report, t("notification_setting.labels.daily_report"), :value => "daily_report" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.radio_button :report, "weekly_report" %>
+        <%= f.label :report, t("notification_setting.labels.weekly_report"), :value => "weekly_report" %>
+      </div>
+
 
       <div><%= f.submit "Atualizar preferências", class: "btn btn-primary" %></div>
     <% end %>

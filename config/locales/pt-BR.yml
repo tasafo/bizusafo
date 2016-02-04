@@ -13,14 +13,22 @@
 
   download_extension: "Instale nossa extensão para o Chrome!"
 
+  profile:
+    edit: "Editar meu perfil e notificações"
+
   notification_setting:
     legend: "Preferências de Notificações"
     update: "Preferências atualizadas com sucesso!"
     error: "Algum erro aconteceu ao atualizar as preferências de notificações."
     labels:
+      new_stories: "criar um novo Bizu."
       new_rating: "votar em um Bizu que você compartilhou."
       new_comment: "comentar em um Bizu que você compartilhou."
       new_comment_followed_story: "comentar em um Bizu que você está seguindo."
+      no_report: "Não receber emails"
+      every_event: "sempre que acontecerem"
+      daily_report: "resumo diário"
+      weekly_report: "resumo semanal"
 
   notifications:
     new_rating:
@@ -29,6 +37,12 @@
       subject: "[BizuSafo] Novo comentário no Bizu que você compartilhou!"
     new_comment_followed_story:
       subject: "[BizuSafo] Novo comentário no Bizu que você está seguindo!"
+    new_story:
+      subject: "[BizuSafo] Novo bizu!"
+    daily_report:
+      subject: "[BizuSafo] Novidades do dia!"
+    weekly_report:
+      subject: "[BizuSafo] Novidades da semana!"
 
   story:
     no_story: "Nenhum Bizuuu aqui!"
