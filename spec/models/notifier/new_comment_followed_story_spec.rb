@@ -31,5 +31,14 @@ describe Notifier::NewCommentFollowedStory do
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
       end
     end
+
+    context "when the commenters do not allow every event report notifications" do
+      it "does not deliver any email" do
+        users(:victor).notification_setting.update_attributes(report: NotificationSetting::DAILY_REPORT)
+        expect do
+          comment
+        end.to change{ActionMailer::Base.deliveries.size}.by(0)
+      end
+    end
   end
 end

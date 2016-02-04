@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
 
   scope :commented_on_story, ->(story) { joins(:comments).where("comments.commentable_id = ? AND comments.commentable_type = ?", story.id, "story") }
   scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = ?", true) }
+  scope :receives_new_story, -> { joins(:notification_setting).where("notification_settings.new_stories = ?", true) }
+  scope :receives_every_event_report, -> { joins(:notification_setting).where("notification_settings.report = ?", NotificationSetting::EVERY_EVENT_REPORT) }
+  scope :receives_daily_report, -> { joins(:notification_setting).where("notification_settings.report = ?", NotificationSetting::DAILY_REPORT) }
+  scope :receives_weekly_report, -> { joins(:notification_setting).where("notification_settings.report = ?", NotificationSetting::WEEKLY_REPORT) }
 
   def self.find_or_create_for_facebook_oauth(auth)
     user = where(auth.info.slice(:email).to_h).first_or_create do |user|

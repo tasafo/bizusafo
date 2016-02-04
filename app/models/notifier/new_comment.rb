@@ -10,6 +10,7 @@ class Notifier::NewComment
   end
 
   def recipients
-    @commentable.user if @commentable.user.notification_setting.new_comment
+    settings = @commentable.user.notification_setting
+    @commentable.user if settings.new_comment? && settings.every_event_report?
   end
 end

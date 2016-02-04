@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828183113) do
+ActiveRecord::Schema.define(version: 20160126130609) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "author_id",        limit: 4
@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 20140828183113) do
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "notification_settings", force: :cascade do |t|
-    t.boolean  "new_comment_followed_story",           default: true
-    t.boolean  "new_rating",                           default: true
-    t.boolean  "new_comment",                          default: true
+    t.boolean  "new_comment_followed_story", limit: 1,   default: true
+    t.boolean  "new_rating",                 limit: 1,   default: true
+    t.boolean  "new_comment",                limit: 1,   default: true
     t.integer  "user_id",                    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "new_stories",                limit: 1,   default: true
+    t.string   "report",                     limit: 255, default: "every_event"
   end
 
   add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
@@ -40,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140828183113) do
     t.integer  "user_id",       limit: 4
     t.integer  "rateable_id",   limit: 4
     t.string   "rateable_type", limit: 255
-    t.boolean  "positive"
+    t.boolean  "positive",      limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

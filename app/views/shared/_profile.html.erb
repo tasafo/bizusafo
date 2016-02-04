@@ -18,6 +18,12 @@
           <strong><%= @user.stories.count %> bizuuus!</strong>
         </p>
       </article>
+
+      <% if current_user == @user %>
+        <aside>
+          <%= link_to t("profile.edit"), edit_user_registration_path %>
+        </aside>
+      <% end %>
     </div>
   </div>
 </section>

@@ -13,10 +13,9 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = current_user.stories.build new_story_params
-    @story.comments.first.author = current_user if @story.comments.present?
+    @story = Story.create_story! user: current_user, params: new_story_params
 
-    if @story.save
+    if @story.persisted?
       redirect_to root_path, :notice => "Bizu criado com sucesso!"
     else
       @story.comments.build if @story.comments.blank?
