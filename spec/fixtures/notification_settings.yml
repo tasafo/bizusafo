@@ -1,12 +1,18 @@
 john_settings:
+  new_stories: true
   new_rating: true
   new_comment_followed_story: true
   user: john
+  report: "every_event"
 
 amanda_settings:
+  new_stories: true
   new_comment_followed_story: false
   user: amanda
+  report: "every_event"
 
 victor_settings:
+  new_stories: true
   new_comment_followed_story: true
   user: victor
+  report: "every_event"

@@ -1,0 +1,32 @@
+<p>
+  Olá!
+</p>
+
+<% if @stories.any? %>
+  <p>
+    Lá vai o resumo diário de hoje! <%= @date %>
+  </p>
+
+  <% @stories.each do |story| %>
+    <p>
+      <%= link_to story.description, story_url(story) %> de <%= link_to story.user.username, profile_url(story.user) %>
+    </p>
+  <% end %>
+<% else %>
+  <p>
+    Não houve nenhum Bizu hoje :(
+  </p>
+
+  <p>Que tal compartilhar alguma coisa com a gente no <%= link_to "BizuSafo", root_url %>?!</p>
+<% end %>
+
+<p>
+  <u>Equipe BizuSafo</u>
+</p>
+
+---
+
+<p>
+  Caso deseje editar suas preferências de notificações por email<br/>
+  por favor atualize suas preferências na <%= link_to "página de perfil", edit_user_registration_url %>.
+</p>

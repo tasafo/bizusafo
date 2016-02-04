@@ -1,0 +1,26 @@
+<p>
+  Olá!
+</p>
+
+<p>
+  Há um novo Bizu de <b><%= @story.user.username %></b> no ar!
+</p>
+
+<p>
+  Veja este Bizu aqui:
+</p>
+
+<p>
+  <%= link_to @story.description, story_url(@story) %>
+</p>
+
+<p>
+  <u>Equipe BizuSafo</u>
+</p>
+
+---
+
+<p>
+  Caso não deseje mais receber notificações por email quando alguém<br/>
+  cria um novo Bizu, por favor atualize suas preferências na <%= link_to "página de perfil", edit_user_registration_url %>.
+</p>
