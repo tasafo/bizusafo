@@ -1,0 +1,18 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.2.4
+services:
+  - mysql
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - mysql -e 'create database bizusafo_test;'
+  - bundle exec rake db:migrate RAILS_ENV=test
+script: xvfb-run -a bundle exec rspec
+addons:
+  apt:
+    packages:
+      - libqtwebkit-dev
+      - xvfb
+  code_climate:
+    repo_token: 88aeb5befc237aca41dd7b3d65025474be53470fa0eb358572d17c866d983672

@@ -1,4 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ENV["RAILS_ENV"] ||= 'test'
 
 require 'simplecov'
@@ -61,5 +64,12 @@ RSpec.configure do |config|
     I18n.exception_handler = @_i18n_exception_handler
   end
 
-  Capybara.javascript_driver = :selenium
+  #Capybara.javascript_driver = :selenium
+  Capybara.javascript_driver = :webkit
+
+  config.before(:each, js: true) do
+    if [:webkit, :webkit_debug].include? Capybara.current_driver
+      page.driver.block_unknown_urls
+    end
+  end
 end
