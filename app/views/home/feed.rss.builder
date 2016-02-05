@@ -11,11 +11,11 @@ xml.rss :version => "2.0" do
 
     for article in @stories
       xml.item do
-        xml.text article.description
+        xml.title article.description
+        xml.content article.description
         xml.link "https://www.bizusafo.com.br" + "/stories/" + article.id.to_s
         xml.author article.user.username
-        xml.pubDate article.created_at.to_s(:db)
-        xml.guid article.id
+        xml.pubdate article.created_at.to_s(:db)
       end
     end
   end
