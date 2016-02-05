@@ -23,5 +23,7 @@ Bizusafo::Application.routes.draw do
 
   resources :comments
 
+  get "/feed" => "home#feed", :as => "feed"
+
   root "home#index"
 end
