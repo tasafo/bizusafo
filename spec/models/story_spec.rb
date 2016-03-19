@@ -52,6 +52,16 @@ describe Story do
       end
     end
 
+    context "when story is not created successfully" do
+      it "uniqueness url" do
+        valid_story_params[:url] = story.url
+        new_story = Story.new(valid_story_params, user: User.first)
+
+        expect(new_story.save).to be false
+        expect(new_story.errors[:url].present?).to be true
+      end
+    end
+
 
     context "when the comment is not created successfully" do
       it "does not deliver any email" do

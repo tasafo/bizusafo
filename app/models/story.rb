@@ -2,6 +2,7 @@ class Story < ActiveRecord::Base
   acts_as_taggable
 
   validates :url, format: { with: URI.regexp }, allow_blank: true
+  validate :uniqueness_url
   validates :description, presence: true
 
   scope :timeline, -> { order(created_at: :desc) }
@@ -58,5 +59,14 @@ class Story < ActiveRecord::Base
 
   def self.notify_new_story!(story)
     Notifier::NewStory.new(story: story).notify_all!
+  end
+
+  def uniqueness_url
+    story = Story.find_by_url self.url
+    if story
+      link = Rails.application.routes.url_helpers.story_path(story.id)
+      link_author = Rails.application.routes.url_helpers.profile_path(story.user)
+      errors.add(:url, ": O link já foi compartilhado no Bizusafo pelo <a href='#{link_author}'>#{story.user.username}</a>. Aproveite e comente o <a href='#{link}'>bizu</a>.")
+    end
   end
 end
