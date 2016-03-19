@@ -9,7 +9,6 @@ describe Story do
 
     let!(:user) { users(:john) }
 
-
     it "profile filtered", js: true do
       visit "/profiles/#{user.id}"
 
