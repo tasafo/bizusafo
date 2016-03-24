@@ -2,10 +2,24 @@
   margin-right: 20px;
 }
 
-.menu-btn-actions a{
+.menu-btn-actions > a{
   margin-bottom: 10px;
+  height: 68px;
+  width: 68px;
+}
+
+#menu-actions > a.btn > span.glyphicon {
+  font-size: 22px;
 }
 
 section#profile-info {
   margin-bottom: 20px;
+}
+
+.label-menu {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  text-align: center;
+  word-wrap: break-word;
 }

@@ -1,19 +1,24 @@
 <%= link_to root_path, class: "btn btn-lg btn-default", title: "Bizuuus" do %>
   <span class="glyphicon glyphicon-th-list"></span>
+  <p class="label-menu">Bizus</p>
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to profile_path(current_user), class: "btn btn-lg btn-default", title: "Perfil" do %>
-    <span class="glyphicon glyphicon-user"></span>
-  <% end %>
   <%= link_to new_story_path, class: "btn btn-lg btn-default", title: "Novo Bizuuu!!!" do %>
     <span class="glyphicon glyphicon-bullhorn"></span>
+    <p class="label-menu">Novo</p>
+  <% end %>
+  <%= link_to profile_path(current_user), class: "btn btn-lg btn-default", title: "Perfil" do %>
+    <span class="glyphicon glyphicon-user"></span>
+    <p class="label-menu">Perfil</p>
   <% end %>
   <%= link_to destroy_user_session_path, class: "btn btn-lg btn-default", title: "Sair", :method => :delete do %>
     <span class="glyphicon glyphicon-off"></span>
+    <p class="label-menu">Sair</p>
   <% end %>
 <% else %>
   <%= link_to new_user_session_path, class: "btn btn-lg btn-default", title: "Entrar" do %>
     <span class="glyphicon glyphicon-user"></span>
+    <p class="label-menu">Entrar</p>
   <% end %>
 <% end %>
