@@ -62,6 +62,7 @@ class Story < ActiveRecord::Base
   end
 
   def uniqueness_url
+    return if self.url.blank?
     story = Story.find_by_url self.url
     if story
       link = Rails.application.routes.url_helpers.story_path(story.id)
