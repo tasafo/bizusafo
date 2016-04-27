@@ -22,28 +22,51 @@ describe Api::V1::StoriesController, type: :controller do
   end
 
   describe "GET index" do
-    before do
-      @request.headers["HTTP_AUTHORIZATION"] = token_header(user.auth_token)
+    context "without credentials" do
+      context "and without stories" do
+        before do
+          Story.destroy_all
+        end
+
+        it "returns empty list" do
+          get :index
+          expect(parsed_response["stories"]).to be_empty
+          expect(parsed_response["message"]).to eql I18n.t("story.no_story")
+        end
+      end
+
+      context "when we have stories" do
+        it "returns a list" do
+          get :index
+          expect(parsed_response["stories"].size).to be >= 3
+          expect(parsed_response["message"]).to eql ""
+        end
+      end
     end
 
-    context "when don't have stories" do
-
+    context "with valid credentials" do
       before do
-        Story.destroy_all
+        @request.headers["HTTP_AUTHORIZATION"] = token_header(user.auth_token)
       end
 
-      it "returns empty list" do
-        get :index
-        expect(parsed_response["stories"]).to be_empty
-        expect(parsed_response["message"]).to eql I18n.t("story.no_story")
-      end
-    end
+      context "when don't have stories" do
+        before do
+          Story.destroy_all
+        end
 
-    context "when we have stories" do
-      it "returns a list" do
-        get :index
-        expect(parsed_response["stories"].size).to be >= 3
-        expect(parsed_response["message"]).to eql ""
+        it "returns empty list" do
+          get :index
+          expect(parsed_response["stories"]).to be_empty
+          expect(parsed_response["message"]).to eql I18n.t("story.no_story")
+        end
+      end
+
+      context "when we have stories" do
+        it "returns a list" do
+          get :index
+          expect(parsed_response["stories"].size).to be >= 3
+          expect(parsed_response["message"]).to eql ""
+        end
       end
     end
   end
