@@ -7,20 +7,22 @@ class ProfilesController < ApplicationController
   end
 
   def favorites
-    @user = User.find params[:profile_id]
-    @stories = Story::Filter.new.filter(params, Story.favorited_by(@user))
-    render :show
+    render_profile(:favorited_by)
   end
 
   def negatives
-    @user = User.find params[:profile_id]
-    @stories = Story::Filter.new.filter(params, Story.negative_by(@user))
-    render :show
+    render_profile(:negative_by)
   end
 
   def commented
+    render_profile(:commented_by)
+  end
+
+  protected
+
+  def render_profile(subject)
     @user = User.find params[:profile_id]
-    @stories = Story::Filter.new.filter(params, Story.commented_by(@user))
+    @stories = Story::Filter.new.filter(params, Story.send(subject, @user))
     render :show
   end
 end
