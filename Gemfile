@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.4.1'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.9'
 gem 'rails-i18n'
 gem 'mysql2'
 gem 'sass-rails', '~> 4.0.3'
@@ -40,6 +40,3 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :doc do
-  gem 'sdoc', require: false
-end
