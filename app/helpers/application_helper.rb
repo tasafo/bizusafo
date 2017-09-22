@@ -3,6 +3,6 @@ module ApplicationHelper
     return user.facebook_image if user.facebook_image.present?
 
     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-    "http://gravatar.com/avatar/#{gravatar_id}.png"
+    "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
 end
