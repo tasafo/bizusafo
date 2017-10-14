@@ -34,7 +34,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter'
 end
 
 group :production do

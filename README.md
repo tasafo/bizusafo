@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/tasafo/bizusafo/badges/gpa.svg)](https://codeclimate.com/github/tasafo/bizusafo) [![Test Coverage](https://codeclimate.com/github/tasafo/bizusafo/badges/coverage.svg)](https://codeclimate.com/github/tasafo/bizusafo/coverage) [![Build Status](https://travis-ci.org/tasafo/bizusafo.svg?branch=master)](https://travis-ci.org/tasafo/bizusafo)
+[![Code Climate](https://codeclimate.com/github/tasafo/bizusafo/badges/gpa.svg)](https://codeclimate.com/github/tasafo/bizusafo) [![Test Coverage](https://codeclimate.com/github/tasafo/bizusafo/badges/coverage.svg)](https://codeclimate.com/github/tasafo/bizusafo/coverage) [![Build Status](https://travis-ci.org/tasafo/bizusafo.svg?branch=master)](https://travis-ci.org/tasafo/bizusafo) [![security](https://hakiri.io/github/tasafo/bizusafo/master.svg)](https://hakiri.io/github/tasafo/bizusafo/master)
 
 # Notícias da Comunidade
 
