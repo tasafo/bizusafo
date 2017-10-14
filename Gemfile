@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.4.1'
+ruby '2.4.2'
 
-gem 'rails', '4.2.9'
+gem 'rails', '4.2.10'
 gem 'rails-i18n'
 gem 'mysql2'
 gem 'sass-rails', '~> 4.0.3'
@@ -15,6 +15,8 @@ gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'acts-as-taggable-on'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'rake', '10.5.0'
 
 group :development do
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
