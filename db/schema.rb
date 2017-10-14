@@ -18,21 +18,21 @@ ActiveRecord::Schema.define(version: 20160126130609) do
     t.text     "text",             limit: 65535
     t.integer  "commentable_id",   limit: 4
     t.string   "commentable_type", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "notification_settings", force: :cascade do |t|
-    t.boolean  "new_comment_followed_story", limit: 1,   default: true
-    t.boolean  "new_rating",                 limit: 1,   default: true
-    t.boolean  "new_comment",                limit: 1,   default: true
+    t.boolean  "new_comment_followed_story",             default: true
+    t.boolean  "new_rating",                             default: true
+    t.boolean  "new_comment",                            default: true
     t.integer  "user_id",                    limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "new_stories",                limit: 1,   default: true
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
+    t.boolean  "new_stories",                            default: true
     t.string   "report",                     limit: 255, default: "every_event"
   end
 
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20160126130609) do
     t.integer  "user_id",       limit: 4
     t.integer  "rateable_id",   limit: 4
     t.string   "rateable_type", limit: 255
-    t.boolean  "positive",      limit: 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "positive"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "ratings", ["rateable_type", "rateable_id"], name: "index_ratings_on_rateable_type_and_rateable_id", using: :btree
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20160126130609) do
   create_table "stories", force: :cascade do |t|
     t.text     "description",    limit: 65535
     t.string   "url",            limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "user_id",        limit: 4
     t.integer  "rating_counter", limit: 4,     default: 0
   end
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20160126130609) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "facebook_image",         limit: 255

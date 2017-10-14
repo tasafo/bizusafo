@@ -6,7 +6,7 @@ class CreateNotificationSettings < ActiveRecord::Migration
       t.boolean :new_comment, default: true
       t.belongs_to :user, index: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

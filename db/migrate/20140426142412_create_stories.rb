@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :description
       t.string :url
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

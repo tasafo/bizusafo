@@ -5,9 +5,9 @@ class CreateRatings < ActiveRecord::Migration
       t.references :rateable, :polymorphic => true
       t.boolean :positive
 
-      t.timestamps
+      t.timestamps null: false
     end
-    
+
     add_index :ratings, [:rateable_type, :rateable_id]
   end
 end
