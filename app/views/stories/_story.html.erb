@@ -12,7 +12,7 @@
 
       <% if story.tag_list.present? %>
         <aside class="tags">
-          Tags: <%= raw story.tag_list.map { |tag| story_filter_handler tag, :tags, tag }.join ", " %>
+          Tags: <%= story.tag_list.map { |tag| story_filter_handler tag, :tags, tag }.join(', ').html_safe %>
         </aside>
       <% end %>
     </div>

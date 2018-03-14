@@ -32,6 +32,11 @@ Abra o Mailcatcher http://127.0.0.1:1080 no navegador
 
 ## Ambiente de produção
 
+### Configure a chave de segurança através da variável de ambiente:
+    SECRET_KEY_BASE
+
+    ex: heroku config:set SECRET_KEY_BASE=$(rake secret)
+
 ### Configure o aplicativo do Facebook através das variáveis de ambiente:
     FACEBOOK_APP_ID
 
