@@ -1,4 +1,0 @@
-FACEBOOK_APP = {
-  id: ENV['FACEBOOK_APP_ID'],
-  secret: ENV['FACEBOOK_APP_SECRET']
-}

@@ -2,16 +2,20 @@ dist: trusty
 sudo: false
 language: ruby
 rvm:
-  - 2.4.2
+  - 2.5.0
 branches:
   only:
     - master
+  env:
+    global:
+      - DB_USER=postgres
+      - DB_PASS=
 services:
-  - mysql
+  - postgresql
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
 script:
   - xvfb-run -a bundle exec rake spec
 after_success:
@@ -21,9 +25,19 @@ addons:
     packages:
       - qt5-default
       - libqt5webkit5-dev
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-tools
+      - gstreamer1.0-x
       - xvfb
   code_climate:
     repo_token: 88aeb5befc237aca41dd7b3d65025474be53470fa0eb358572d17c866d983672
 notifications:
   slack:
     secure: A4+ITjO+mSKAL+89tFrp/nZtpJe6r+9Riz8Q8kxgnx5VMR6zr1tHiUgkiLxHSXAMyc3qfv/IFX3KeFT6c1/8QovduHAMeKN/KnBhnoxw4ILdIeo/j+cU7wvM+N62f8IBM5qzUyILpxDex8bYpc/0pzqNCJhkdztRKX+LzJL73D0=
+deploy:
+  provider: heroku
+  app: bizusafo
+  api_key:
+    secure: Mhp7jMUuzRVdu4QMOBIEqh5Bol6ZqtmK2xaFSxUsERieNysWtanL3m0KYsTJ4YrlLnns1f/YLkgYwazw4q4hqzm7m0PVL6KOLCvs1h9/4JpLya030cJX4OF8X0uwZQu/kmV8C+w3D/VdnPzx1hZj/yPG78Rd0eyk3ZYgzoMKcxI=
+  run:
+    - "rake db:migrate"

@@ -48,7 +48,7 @@ module StoriesHelper
   end
 
   def sign_in_to_rate_popover_text
-    "Para votar, #{link_to "entre aqui", new_user_session_path} ou #{link_to "acesse com o Facebook", user_omniauth_authorize_path(:facebook)}!"
+    "Para votar, #{link_to "entre aqui", new_user_session_path} ou #{link_to "acesse com o Facebook", user_facebook_omniauth_authorize_path}!"
   end
 
   def can_rate_for?(story)

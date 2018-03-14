@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+  host: localhost
+
+development:
+  <<: *default
+  database: bizusafo_development
+
+test:
+  <<: *default
+  database: bizusafo_test
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
