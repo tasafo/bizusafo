@@ -18,7 +18,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-
   config.global_fixtures = :all
 
   # ## Mock Framework
@@ -46,8 +45,7 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
-
+  config.order = :random
 
   ##
   # Facilita encontrar traduções
@@ -57,6 +55,7 @@ RSpec.configure do |config|
     @_i18n_exception_handler = I18n.exception_handler
     I18n.exception_handler = lambda { |*args| raise args.first.to_s }
   end
+
   config.after(:all, type: :model) do
     I18n.exception_handler = @_i18n_exception_handler
   end
@@ -66,7 +65,12 @@ RSpec.configure do |config|
 
   config.before(:each, js: true) do
     if [:webkit, :webkit_debug].include? Capybara.current_driver
-      page.driver.block_unknown_urls
+      Capybara::Webkit.configure do |config|
+        config.block_unknown_urls
+      end
     end
   end
+
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end

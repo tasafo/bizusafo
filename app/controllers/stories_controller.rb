@@ -45,15 +45,11 @@ class StoriesController < ApplicationController
   end
 
   def positive
-    if get_story.add_positive_rating!(current_user)
-      render json: { success: true }
-    end
+    render json: { success: get_story.add_positive_rating!(current_user) }
   end
 
   def negative
-    if get_story.add_negative_rating!(current_user)
-      render json: { success: true }
-    end
+    render json: { success: get_story.add_negative_rating!(current_user) }
   end
 
   private

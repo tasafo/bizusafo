@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe User do
+describe User, :type => :model do
   let(:user) { User.new }
 
   context "Erros de validação em português" do
@@ -20,7 +20,7 @@ describe User do
 
     describe "commented_on_story" do
       it "returns users who commented on some story" do
-        assert User.commented_on_story(story).include?(commenter)
+        expect(User.commented_on_story(story)).to include commenter
       end
 
       it "does not return users who did not comment on some story" do

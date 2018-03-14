@@ -7,5 +7,4 @@ class Rating < ActiveRecord::Base
   scope :negative, -> { where(:positive => false) }
   scope :negatives_for, -> (user, type) { where("user_id = ? and rateable_type = ? and positive = false", user.id, type)}
   scope :has_votes_for, -> (user, type) { where("user_id = ? and rateable_type = ?", user.id, type)}
-
 end

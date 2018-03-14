@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :notification_setting, :dependent => :destroy
   before_create :build_notification_setting
 
-  scope :commented_on_story, ->(story) { joins(:comments).where("comments.commentable_id = ? AND comments.commentable_type = ?", story.id, "story") }
+  scope :commented_on_story, -> (story) { joins(:comments).where("comments.commentable_id = ? AND comments.commentable_type = 'Story'", story.id) }
   scope :receives_new_comment_followed_story, -> { joins(:notification_setting).where("notification_settings.new_comment_followed_story = ?", true) }
   scope :receives_new_story, -> { joins(:notification_setting).where("notification_settings.new_stories = ?", true) }
   scope :receives_every_event_report, -> { joins(:notification_setting).where("notification_settings.report = ?", NotificationSetting::EVERY_EVENT_REPORT) }

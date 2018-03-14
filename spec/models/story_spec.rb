@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Story do
+describe Story, :type => :model do
   context "Valid data" do
     it { should_not allow_value("is not a url").for :url }
     it { should allow_value("").for :url }

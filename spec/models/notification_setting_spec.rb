@@ -1,7 +1,6 @@
 require "rails_helper"
 
-describe NotificationSetting do
-
+describe NotificationSetting, :type => :model do
   context "Valid data" do
     it { should validate_inclusion_of(:report).in_array [
       NotificationSetting::NO_REPORT,

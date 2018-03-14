@@ -11,9 +11,15 @@ class Story < ActiveRecord::Base
   scope :by_current_month, -> { where("stories.created_at >= ?", 30.days.ago) }
   scope :by_current_week, -> { where("stories.created_at >= ?", 7.days.ago) }
   scope :by_yesterday, -> { where("stories.created_at >= ?", 1.day.ago) }
-  scope :favorited_by, -> (user) { includes(:ratings).where("ratings.user_id" => user.id, "ratings.positive" => true) }
-  scope :negative_by, -> (user) { includes(:ratings).where("ratings.user_id" => user.id, "ratings.positive" => false) }
-  scope :commented_by, -> (user) { includes(:comments).where("comments.author_id" => user.id) }
+  scope :favorited_by, -> (user) do
+    eager_load(:ratings).where("ratings.user_id = ? AND ratings.positive = ?", user.id, true)
+  end
+  scope :negative_by, -> (user) do
+    eager_load(:ratings).where("ratings.user_id = ? AND ratings.positive = ?", user.id, false)
+  end
+  scope :commented_by, -> (user) do
+    eager_load(:comments).where("comments.author_id = ?", user.id)
+  end
 
   belongs_to :user
   has_many :ratings, as: :rateable

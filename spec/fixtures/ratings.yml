@@ -1,9 +1,9 @@
 john_positive_how_to:
-  rateable: how_to(story)
+  rateable: how_to(Story)
   user: john
   positive: true
 
 john_negative_best_coders:
-  rateable: best_coders(story)
+  rateable: best_coders(Story)
   user: john
   positive: false
