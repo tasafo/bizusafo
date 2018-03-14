@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'pg', '0.20.0'
+gem 'puma'
 
 group :development do
   gem 'quiet_assets'
@@ -37,3 +38,6 @@ group :test do
   gem 'codeclimate-test-reporter'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
