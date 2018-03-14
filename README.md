@@ -2,39 +2,51 @@
 
 # Notícias da Comunidade
 
-## 1. Site oficial:
-[bizusafo.com.br](http://bizusafo.com.br)
+## Site oficial:
+[bizu.tasafo.org](https://bizu.tasafo.org)
 
-## 2. Configure a conexão com o banco de dados:
-    cp config/database.yml.example config/database.yml
+## Ambiente de desenvolvimento
 
-    vim config/database.yml
+### Instale o Mailcatcher para testar e-mails no ambiente local
+    gem install mailcatcher
 
-## 3. Crir os bancos de dados
+#### Rode o Mailcatcher quando precisar testar e-mails
+    mailcatcher
+
+Abra o Mailcatcher http://127.0.0.1:1080 no navegador
+
+### Configure usuário e senha da conexão com o banco de dados:
+    cp .env.example .env
+
+    vim .env
+
+### Crie os bancos de dados
     rake db:create
 
     rake db:migrate
 
     rake db:test:prepare
 
-## 4. Rode os testes
+### Rode os testes
     rake spec
 
-## 5. Configure o aplicativo do Facebook através das variáveis de ambiente:
-    ENV['FACEBOOK_APP_ID']
+## Ambiente de produção
 
-    ENV['FACEBOOK_APP_SECRET']
+### Configure o aplicativo do Facebook através das variáveis de ambiente:
+    FACEBOOK_APP_ID
+
+    FACEBOOK_APP_SECRET
 
     ex: heroku config:set FACEBOOK_APP_ID=8N029N81 FACEBOOK_APP_SECRET=9s83109d3+583493190
 
-## 6. Configure o envio de emails pelo SendGrid com variáveis de ambiente:
-    ENV['SENDGRID_USERNAME']
+### Configure o envio de e-mails pelo SendGrid com variáveis de ambiente:
+    SENDGRID_USERNAME
 
-    ENV['SENDGRID_PASSWORD']
+    SENDGRID_PASSWORD
 
     ex: heroku config:set SENDGRID_USERNAME=8N029N81 SENDGRID_PASSWORD=9s83109d3+583493190
 
-## 7. Configure o Google Analytics com variáveis de ambiente: (opcional)
-    ENV['GOOGLE_ANALYTICS_ID']
+### Configure o Google Analytics com variáveis de ambiente: (opcional)
+    GOOGLE_ANALYTICS_ID
 
     ex: heroku config:set GOOGLE_ANALYTICS_ID=UA-165967323-14
