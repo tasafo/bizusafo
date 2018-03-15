@@ -72,7 +72,7 @@
         current_password: "Senha atual"
         remember_me: "Lembre-me"
       story:
-        url: "Url"
+        url: "Link"
         description: "Descrição"
       comment:
         text: "Comentário"

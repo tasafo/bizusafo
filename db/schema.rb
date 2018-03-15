@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126130609) do
+ActiveRecord::Schema.define(version: 20180315104632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160126130609) do
     t.integer  "rating_counter", default: 0
   end
 
+  add_index "stories", ["url"], name: "index_stories_on_url", unique: true, using: :btree
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|

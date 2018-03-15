@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
   def update
     @story = current_user.stories.find(params[:id])
 
-    if @story.update_attributes story_params
+    if @story.update_attributes edit_story_params
       redirect_to root_path, :notice => "Bizu alterado com sucesso!"
     else
       render :edit
@@ -39,9 +39,10 @@ class StoriesController < ApplicationController
 
   def destroy
     @story = current_user.stories.find(params[:id])
-    @story.destroy
 
-    redirect_to root_path, :notice => "Bizu excluido com sucesso!"
+    notice = @story.destroy ? "Bizu excluído com sucesso!" : "Bizu não pôde ser excluído"
+
+    redirect_to root_path, :notice => notice
   end
 
   def positive
@@ -62,7 +63,7 @@ class StoriesController < ApplicationController
     params.require(:story).permit(:description, :url, :tag_list, :comments_attributes => [:text, :commentable_type, :commentable_id, :author_id])
   end
 
-  def story_params
-    params.require(:story).permit(:description, :url, :tag_list)
+  def edit_story_params
+    params.require(:story).permit(:description, :tag_list)
   end
 end
