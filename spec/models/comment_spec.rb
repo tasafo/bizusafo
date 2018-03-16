@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe Comment, :type => :model do
   describe "add_comment!" do
@@ -7,7 +7,7 @@ describe Comment, :type => :model do
     fixtures(:comments)
     fixtures(:notification_settings)
 
-    let(:comment) { Comment.add_comment! commentable_id: stories(:how_to).id, commentable_type: "Story", text: "text", author_id: users(:amanda).id  }
+    let(:comment) { Comment.add_comment! commentable_id: stories(:how_to).id, commentable_type: "Story", text: "text", author_id: users(:amanda).id }
 
     it "creates a comment with the given params" do
       expect do
@@ -30,7 +30,6 @@ describe Comment, :type => :model do
         expect(ActionMailer::Base.deliveries.last.bcc).to include users(:victor).email
       end
     end
-
 
     context "when the comment is not created successfully" do
       it "does not deliver any email" do

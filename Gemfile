@@ -2,26 +2,26 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '4.2.10'
-gem 'rails-i18n'
-gem 'dotenv-rails', :require => 'dotenv/rails-now'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 1.2'
+gem 'rails', '5.1.5'
+gem 'rails-i18n', '5.1.1'
+gem 'dotenv-rails', '2.2.1', require: 'dotenv/rails-now'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'jquery-rails', '4.3.1'
+gem 'jbuilder'
 
-gem 'devise'
+gem 'devise', '4.4.2'
 gem 'devise-i18n'
-gem 'kaminari'
 gem 'omniauth-facebook'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 gem 'acts-as-taggable-on'
-gem 'kaminari-bootstrap', '~> 3.0.1'
 
-gem 'pg', '0.20.0'
+gem 'pg', '0.21.0'
 gem 'puma'
 
 group :development do
-  gem 'quiet_assets'
+  gem 'listen'
 end
 
 group :development, :test do
@@ -36,8 +36,4 @@ group :test do
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter'
-end
-
-group :production do
-  gem 'rails_12factor'
 end

@@ -16,3 +16,4 @@ coverage
 .ruby-gemset
 .ruby-version
 .env
+start-servers.sh

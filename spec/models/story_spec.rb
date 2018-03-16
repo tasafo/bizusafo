@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Story, :type => :model do
   context "Valid data" do
@@ -22,12 +22,10 @@ describe Story, :type => :model do
       }
     }
 
-    let(:story) { Story.create_story! params: valid_story_params, user: users(:amanda)  }
+    let!(:story) { Story.create_story! params: valid_story_params, user: users(:amanda) }
 
     it "creates a story with the given params" do
-      expect do
-        story
-      end.to change{Story.count}.by(1)
+      expect(story).to be_valid
     end
 
     it "returns a new story" do
@@ -35,9 +33,7 @@ describe Story, :type => :model do
     end
 
     it "creates a story with first comment" do
-      expect do
-        story
-      end.to change{Comment.count}.by(1)
+      expect(story.comments.count).to eql 1
 
       expect(users(:amanda).reload.comments.last.text).to eql "Some comment"
     end
@@ -55,7 +51,8 @@ describe Story, :type => :model do
     context "when story is not created successfully" do
       it "uniqueness url" do
         valid_story_params[:url] = story.url
-        new_story = Story.new(valid_story_params, user: User.first)
+        valid_story_params[:user] = User.first
+        new_story = Story.new(valid_story_params)
 
         expect(new_story.save).to be false
         expect(new_story.errors[:url].present?).to be true

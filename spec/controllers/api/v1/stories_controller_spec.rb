@@ -18,7 +18,7 @@ describe Api::V1::StoriesController, type: :controller do
   end
 
   before do
-    @request.headers["ACCEPT"] = Mime::JSON
+    @request.headers["ACCEPT"] = Mime[:json]
   end
 
   describe "GET index" do
@@ -80,10 +80,10 @@ describe Api::V1::StoriesController, type: :controller do
       context "with valid params" do
         it "creates new story" do
           expect {
-            post :create, story: valid_params
+            post :create, params: { story: valid_params }
           }.to change{ Story.count }.by(1)
 
-          story = assigns(:story)
+          story = stories(:how_to)
 
           expect(story.user).to eql user
           expect(response.status).to eql 201
@@ -93,7 +93,7 @@ describe Api::V1::StoriesController, type: :controller do
 
       context "without comment text" do
         it "saves story without errors" do
-          post :create, story: valid_params.merge(comment_text: "")
+          post :create, params: { story: valid_params.merge(comment_text: "") }
 
           expect(Story.last.comments).to be_empty
           expect(response.status).to eql 201
@@ -101,7 +101,7 @@ describe Api::V1::StoriesController, type: :controller do
       end
 
       it "saves comment with current user as author" do
-        post :create, story: valid_params
+        post :create, params: { story: valid_params }
 
         comment = Story.last.comments.last
         expect(comment.author).to eql user
@@ -110,12 +110,12 @@ describe Api::V1::StoriesController, type: :controller do
       context "with invalid params" do
         it "responds unprocesses entity" do
           expect {
-            post :create, story: invalid_params
+            post :create, params: { story: invalid_params }
           }.to change{ Story.count }.by(0)
 
           expect(response.status).to eql 422
 
-          invalid_story = Story.new
+          invalid_story = user.stories.new
           invalid_story.valid?
           expect(parsed_response).to eql invalid_story.errors.full_messages
         end
@@ -126,7 +126,7 @@ describe Api::V1::StoriesController, type: :controller do
       it "responds unauthorized" do
         expect {
           @request.headers["HTTP_AUTHORIZATION"] = token_header("wrong token")
-          post :create, story: valid_params
+          post :create, params: { story: valid_params }
         }.to change{ Story.count }.by(0)
 
         expect(response.status).to eql 401

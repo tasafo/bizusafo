@@ -1,11 +1,7 @@
-"pt-BR":
+pt-BR:
   i18n: # for testing purposes...
     plural: # for testing purposes...
       rule: "" # for testing purposes...
-
-  errors:
-    messages:
-      not_saved: "Não foi salvo."
 
   time:
     formats:
@@ -66,7 +62,7 @@
     attributes:
       user:
         username: "Apelido"
-        email: "Email"
+        email: "E-mail"
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
         current_password: "Senha atual"
@@ -76,27 +72,3 @@
         description: "Descrição"
       comment:
         text: "Comentário"
-    errors:
-      models:
-        user:
-          attributes:
-            username:
-              blank: "não pode ficar em branco."
-            password:
-              too_short: "deve conter ao menos 8 caractéres."
-              blank: "não pode ficar em branco."
-            password_confirmation:
-              confirmation: "inválida."
-            email:
-              blank: "não pode ficar em branco."
-        story:
-          attributes:
-            url:
-              blank: "não pode ficar em branco"
-              invalid: "não é valida"
-            description:
-              blank: "não pode ficar em branco"
-        comment:
-          attributes:
-            text:
-              blank: "não pode ficar em branco."

@@ -21,14 +21,13 @@ Abra o Mailcatcher http://127.0.0.1:1080 no navegador
     vim .env
 
 ### Crie os bancos de dados
-    rake db:create
-
-    rake db:migrate
-
-    rake db:test:prepare
+    rails db:create db:migrate db:test:prepare
 
 ### Rode os testes
-    rake spec
+    rails spec
+
+### Rode os servidor local
+    rails server
 
 ## Ambiente de produção
 

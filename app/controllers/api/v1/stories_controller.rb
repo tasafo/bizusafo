@@ -1,5 +1,5 @@
 class Api::V1::StoriesController < ApiController
-  before_filter :authenticate, except: [:index]
+  before_action :authenticate, except: [:index]
 
   def index
     @stories = Story.all

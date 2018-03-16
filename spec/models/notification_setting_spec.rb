@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe NotificationSetting, :type => :model do
   context "Valid data" do
