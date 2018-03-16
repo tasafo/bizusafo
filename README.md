@@ -36,6 +36,16 @@ Abra o Mailcatcher http://127.0.0.1:1080 no navegador
 
     ex: heroku config:set SECRET_KEY_BASE=$(rake secret)
 
+### Configure a gravação de logs com a variável de ambiente:
+    RAILS_LOG_TO_STDOUT
+
+    ex: heroku config:set RAILS_LOG_TO_STDOUT=enabled
+
+### Configure a compilação de assets com a variável de ambiente:
+    RAILS_SERVE_STATIC_FILES
+
+    ex: heroku config:set RAILS_SERVE_STATIC_FILES=enabled
+
 ### Configure o aplicativo do Facebook através das variáveis de ambiente:
     FACEBOOK_APP_ID
 

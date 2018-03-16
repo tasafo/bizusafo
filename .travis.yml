@@ -13,11 +13,11 @@ env:
 services:
   - postgresql
 before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
+  - bundle exec rails db:test:prepare
 script:
-  - xvfb-run -a bundle exec rake spec
+  - xvfb-run -a bundle exec rails spec
 after_success:
   - bundle exec codeclimate-test-reporter
 addons:
@@ -40,4 +40,4 @@ deploy:
   api_key:
     secure: Mhp7jMUuzRVdu4QMOBIEqh5Bol6ZqtmK2xaFSxUsERieNysWtanL3m0KYsTJ4YrlLnns1f/YLkgYwazw4q4hqzm7m0PVL6KOLCvs1h9/4JpLya030cJX4OF8X0uwZQu/kmV8C+w3D/VdnPzx1hZj/yPG78Rd0eyk3ZYgzoMKcxI=
   run:
-    - "rake db:migrate"
+    - "rails db:migrate"
