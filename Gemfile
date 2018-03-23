@@ -10,7 +10,7 @@ gem 'uglifier'
 gem 'jquery-rails', '4.3.1'
 gem 'jbuilder'
 
-gem 'devise', '4.4.2'
+gem 'devise', '4.4.3'
 gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'kaminari'
@@ -31,7 +31,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'simplecov'
+  gem 'simplecov', '0.16.1'
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
