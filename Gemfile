@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '5.1.5'
-gem 'rails-i18n', '5.1.1'
-gem 'dotenv-rails', '2.2.1', require: 'dotenv/rails-now'
+gem 'rails', '5.1.6'
+gem 'rails-i18n'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails', '4.3.1'
