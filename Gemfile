@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.5.5'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.1.7'
 gem 'rails-i18n'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
@@ -10,7 +10,7 @@ gem 'uglifier'
 gem 'jquery-rails', '4.3.1'
 gem 'jbuilder'
 
-gem 'devise', '4.4.3'
+gem 'devise', '4.6.0'
 gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'kaminari'
