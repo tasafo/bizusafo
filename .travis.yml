@@ -2,39 +2,42 @@ dist: trusty
 sudo: false
 language: ruby
 rvm:
-  - 2.5.5
+- 2.5.5
 branches:
   only:
-    - master
+  - master
 env:
   global:
-    - DB_USER=postgres
-    - DB_PASS=
+  - DB_USER=postgres
+  - DB_PASS=
 services:
-  - postgresql
+- postgresql
+before_install:
+- gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+- gem install bundler -v '< 2'
 before_script:
-  - bundle exec rails db:create
-  - bundle exec rails db:migrate
-  - bundle exec rails db:test:prepare
+- bundle exec rails db:create
+- bundle exec rails db:migrate
+- bundle exec rails db:test:prepare
 script:
-  - xvfb-run -a bundle exec rails spec
+- xvfb-run -a bundle exec rails spec
 after_success:
-  - bundle exec codeclimate-test-reporter
+- bundle exec codeclimate-test-reporter
 addons:
   apt:
     packages:
-      - qt5-default
-      - libqt5webkit5-dev
-      - gstreamer1.0-plugins-base
-      - gstreamer1.0-tools
-      - gstreamer1.0-x
-      - xvfb
+    - qt5-default
+    - libqt5webkit5-dev
+    - gstreamer1.0-plugins-base
+    - gstreamer1.0-tools
+    - gstreamer1.0-x
+    - xvfb
   code_climate:
     repo_token: 88aeb5befc237aca41dd7b3d65025474be53470fa0eb358572d17c866d983672
 deploy:
   provider: heroku
   app: bizusafo
   api_key:
-    secure: Mhp7jMUuzRVdu4QMOBIEqh5Bol6ZqtmK2xaFSxUsERieNysWtanL3m0KYsTJ4YrlLnns1f/YLkgYwazw4q4hqzm7m0PVL6KOLCvs1h9/4JpLya030cJX4OF8X0uwZQu/kmV8C+w3D/VdnPzx1hZj/yPG78Rd0eyk3ZYgzoMKcxI=
+    secure: CKdBgkIcNa1w8BzrLxrpCietGAz0f5iBu0cOnhsCw7kSX+7Grxq+d0F3nvfzUaJwQi3AnXAw1s6EbuQS1Lc2rz3duNM9bjS9wKa5Q2F34C3w+Gtl9oLn8HbOO6L2zsQ4wB13pkFaqJocsQVZFmCpQVFwXDlOTh1GC//qeYbTMjo=
   run:
-    - "rails db:migrate"
+  - rails db:migrate
