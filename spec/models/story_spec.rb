@@ -90,9 +90,6 @@ describe Story, :type => :model do
 
         assert_equal story.rating_counter, ratings_expected
       end
-
-      xit "notifies when rating is added successfully"
-      xit "does not notify when rating is not saved"
     end
 
     describe "add_negative_rating" do
@@ -115,9 +112,6 @@ describe Story, :type => :model do
 
         assert_equal story.rating_counter, ratings_expected
       end
-
-      xit "notifies when rating is added successfully"
-      xit "does not notify when rating is not saved"
     end
   end
 
