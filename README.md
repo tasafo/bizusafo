@@ -2,9 +2,6 @@
 
 # Notícias da Comunidade
 
-## Site oficial:
-[bizu.tasafo.org](https://bizu.tasafo.org)
-
 ## Ambiente de desenvolvimento
 
 ### Instale o Mailcatcher para testar e-mails no ambiente local

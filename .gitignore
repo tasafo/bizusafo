@@ -16,4 +16,6 @@ coverage
 .ruby-gemset
 .ruby-version
 .env
-start-servers.sh
+start.sh
+cc-test-reporter
+vendor/bundle/
