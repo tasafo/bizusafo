@@ -17,7 +17,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'acts-as-taggable-on'
 
-gem 'pg', '0.21.0'
+gem 'pg', '1.1.4'
 gem 'puma'
 
 group :development do
