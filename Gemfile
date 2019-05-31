@@ -10,7 +10,7 @@ gem 'uglifier'
 gem 'jquery-rails', '4.3.1'
 gem 'jbuilder'
 
-gem 'devise', '4.6.0'
+gem 'devise', '4.6.2'
 gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'kaminari'
