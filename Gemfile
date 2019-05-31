@@ -7,7 +7,7 @@ gem 'rails-i18n'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails', '4.3.3'
 gem 'jbuilder'
 
 gem 'devise', '4.6.0'
