@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bizusafo</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Bizusafo</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <%= yield :head %>
-  <%= csrf_meta_tags %>
+    <%= yield :head %>
+    <%= csrf_meta_tags %>
 
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ac86e060676e59"></script>
-</head>
-<body>
-<%= render "shared/facebook_api" %>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ac86e060676e59"></script>
+  </head>
+  <body>
+    <%= render "shared/facebook_api" %>
 
-<div class="container">
-  <%= render "shared/header" %>
-  <%= render "shared/flash_messages" %>
+    <div class="container">
+      <%= render "shared/header" %>
+      <%= render "shared/flash_messages" %>
 
-  <div class="row">
-    <div class="col-md-1 menu-btn-actions">
-      <%= render "shared/main_menu" %>
+      <div class="row">
+        <div class="col-md-1 menu-btn-actions">
+          <%= render "shared/main_menu" %>
+        </div>
+        <div class="col-md-10 profile">
+          <%= render "shared/profile" %>
+          <%= render "shared/profile_menu" %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-10 profile">
-      <%= render "shared/profile" %>
-      <%= render "shared/profile_menu" %>
-      <%= yield %>
-    </div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

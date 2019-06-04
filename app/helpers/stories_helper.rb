@@ -23,11 +23,11 @@ module StoriesHelper
     if can_rate_for?(story)
       link_to positive_votes_count(story), story_positive_path(story), "data-count" => story.ratings.positive.count
     elsif !current_user
-      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{positive_votes_count(story)}".html_safe
+      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{positive_votes_count(story)}</span>".html_safe
     elsif story.user == current_user
-      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{positive_votes_count(story)}".html_safe
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{positive_votes_count(story)}</span>".html_safe
     elsif story.rated_by? current_user
-      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{positive_votes_count(story)}".html_safe
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{positive_votes_count(story)}</span>".html_safe
     else
       positive_votes_count(story)
     end
@@ -37,11 +37,11 @@ module StoriesHelper
     if can_rate_for?(story)
       link_to negative_votes_count(story), story_negative_path(story), "data-count" => story.ratings.negative.count
     elsif !current_user
-      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{negative_votes_count(story)}".html_safe
+      "<span class='sign-in-to-rate' data-toggle='popover' data-placement='top' data-content='#{sign_in_to_rate_popover_text}'>#{negative_votes_count(story)}</span>".html_safe
     elsif story.user == current_user
-      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{negative_votes_count(story)}".html_safe
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_on_own_story")}'>#{negative_votes_count(story)}</span>".html_safe
     elsif story.rated_by? current_user
-      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{negative_votes_count(story)}".html_safe
+      "<span class='popover-trigger' data-toggle='popover' data-placement='top' data-content='#{t("story.cant_rate_again")}'>#{negative_votes_count(story)}</span>".html_safe
     else
       negative_votes_count(story)
     end
@@ -65,9 +65,9 @@ module StoriesHelper
 
   def story_icon(story)
     if story.url.blank?
-      content_tag :span, nil, class:"glyphicon glyphicon-font"
+      content_tag :span, nil, class: "glyphicon glyphicon-font"
     else
-      content_tag :span, nil, class:"glyphicon glyphicon-link"
+      content_tag :span, nil, class: "glyphicon glyphicon-link"
     end
   end
 
