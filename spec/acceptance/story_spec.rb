@@ -1,21 +1,19 @@
 require 'rails_helper'
 
-describe Story do
+describe 'Story', type: :feature, js: true do
+  fixtures :users
+  fixtures :stories
 
-  describe "filtering stories", :type => :feature do
+  let!(:user) { users(:john) }
 
-    fixtures :users
-    fixtures :stories
+  context 'filtering stories' do
+    before do
+      visit profile_path(user)
 
-    let!(:user) { users(:john) }
+      select 'todos', from: 'filter'
+    end
 
-    it "profile filtered", js: true do
-      visit "/profiles/#{user.id}"
-
-      within('#story_filters') do
-        find('#filter').find(:xpath, "option[1]").select_option
-      end
-
+    it 'profile filtered' do
       expect(page).to have_css 'section#profile-info'
     end
   end

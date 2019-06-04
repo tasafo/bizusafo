@@ -9,6 +9,7 @@ require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/cuprite'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -61,16 +62,17 @@ RSpec.configure do |config|
     I18n.exception_handler = @_i18n_exception_handler
   end
 
-  #Capybara.javascript_driver = :selenium
-  Capybara.javascript_driver = :webkit
+  config.include Capybara::DSL
 
-  config.before(:each, js: true) do
-    if [:webkit, :webkit_debug].include? Capybara.current_driver
-      Capybara::Webkit.configure do |config|
-        config.block_unknown_urls
-      end
-    end
+  Capybara.register_driver :cuprite do |app|
+    Capybara::Cuprite::Driver.new(
+      app, 
+      url_blacklist: ['addthis.com', 'facebook.net', 'facebook.com'], 
+      headless: true
+    )
   end
+
+  Capybara.javascript_driver = :cuprite
 
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)

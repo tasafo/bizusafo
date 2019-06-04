@@ -17,14 +17,22 @@ Abra o Mailcatcher http://127.0.0.1:1080 no navegador
 
     vim .env
 
+### Inicia o banco de dados [PostgreSQL](https://www.postgresql.org/) instalado via [Docker compose](https://docs.docker.com/compose/)
+
+    docker-compose up
+
 ### Crie os bancos de dados
     rails db:create db:migrate db:test:prepare
 
-### Rode os testes
-    rails spec
-
 ### Rode os servidor local
     rails server
+
+## Ambiente de testes
+
+É preciso ter instalado o [chromium](https://www.chromium.org/) ou [google chrome](https://www.google.com.br/chrome/) para executar os testes de aceitação
+
+### Rode os testes
+    rails spec
 
 ## Ambiente de produção
 

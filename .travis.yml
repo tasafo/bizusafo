@@ -1,8 +1,8 @@
-dist: trusty
+dist: xenial
 sudo: false
 language: ruby
 rvm:
-- 2.5.5
+- 2.6.3
 branches:
   only:
   - master
@@ -23,20 +23,9 @@ before_script:
 - chmod +x ./cc-test-reporter
 - ./cc-test-reporter before-build
 script:
-- xvfb-run -a bundle exec rails spec
+- bundle exec rails spec
 after_script:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-addons:
-  apt:
-    packages:
-    - qt5-default
-    - libqt5webkit5-dev
-    - gstreamer1.0-plugins-base
-    - gstreamer1.0-tools
-    - gstreamer1.0-x
-    - xvfb
-  code_climate:
-    repo_token: 88aeb5befc237aca41dd7b3d65025474be53470fa0eb358572d17c866d983672
 deploy:
   provider: heroku
   app: bizusafo

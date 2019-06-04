@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.5'
+ruby '2.6.3'
 
 gem 'rails', '5.1.7'
 gem 'rails-i18n'
@@ -33,6 +33,5 @@ group :test do
   gem 'capybara'
   gem 'simplecov', '0.16.1'
   gem 'shoulda-matchers'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
+  gem 'cuprite'
 end

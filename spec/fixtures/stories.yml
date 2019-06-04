@@ -3,6 +3,8 @@ how_to:
   description: How to develop in
   rating_counter: 5
   user: john
+  created_at: <%= Time.zone.now - 1.month %>
+  updated_at: <%= Time.zone.now - 1.month %>
 
 top_tips:
   url: http://top-ruby-tips.com
