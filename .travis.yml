@@ -1,17 +1,16 @@
-dist: xenial
+dist: bionic
 sudo: false
 language: ruby
-rvm:
-- 2.6.3
-branches:
-  only:
-  - master
+rvm: 2.6.3
 env:
   global:
   - DB_USER=postgres
   - DB_PASS=
 services:
 - postgresql
+cache:
+  bundler: true
+bundler_args: --without production
 before_install:
 - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
 - gem install bundler -v '< 2'
@@ -24,11 +23,14 @@ before_script:
 - ./cc-test-reporter before-build
 script:
 - bundle exec rails spec
-after_script:
+after_success:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: heroku
   app: bizusafo
+  skip_cleanup: true
+  on:
+    branch: master
   api_key:
     secure: CKdBgkIcNa1w8BzrLxrpCietGAz0f5iBu0cOnhsCw7kSX+7Grxq+d0F3nvfzUaJwQi3AnXAw1s6EbuQS1Lc2rz3duNM9bjS9wKa5Q2F34C3w+Gtl9oLn8HbOO6L2zsQ4wB13pkFaqJocsQVZFmCpQVFwXDlOTh1GC//qeYbTMjo=
   run:

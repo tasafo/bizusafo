@@ -1,0 +1,4 @@
+/spec
+/coverage
+.bundle/
+vendor/bundle
