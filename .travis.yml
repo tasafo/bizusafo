@@ -6,6 +6,8 @@ env:
   global:
   - DB_USER=postgres
   - DB_PASS=
+addons:
+  postgresql: 10
 services:
 - postgresql
 cache:
