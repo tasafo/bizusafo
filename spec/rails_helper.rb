@@ -66,8 +66,8 @@ RSpec.configure do |config|
 
   Capybara.register_driver :cuprite do |app|
     Capybara::Cuprite::Driver.new(
-      app, 
-      url_blacklist: ['addthis.com', 'facebook.net', 'facebook.com'], 
+      app,
+      url_blacklist: %w[addthis.com facebook.net facebook.com gravatar.com],
       headless: true
     )
   end

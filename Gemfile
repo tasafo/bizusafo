@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 gem 'rails', '5.1.7'
 gem 'rails-i18n'
@@ -17,6 +17,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'acts-as-taggable-on'
+gem 'sprockets', '3.7.2'
 
 gem 'pg', '0.21.0'
 gem 'puma'
