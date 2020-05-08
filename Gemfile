@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-ruby '2.6.5'
+ruby '2.6.6'
 
-gem 'rails', '5.1.7'
+gem 'rails', '~> 6.0'
 gem 'rails-i18n'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails', '4.3.5'
 gem 'jbuilder'
 
-gem 'devise', '4.6.0'
+gem 'devise', '4.7.1'
 gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
