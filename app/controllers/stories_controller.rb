@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
     @story = Story.create_story! user: current_user, params: new_story_params
 
     if @story.persisted?
-      redirect_to root_path, :notice => "Bizu criado com sucesso!"
+      redirect_to root_path, notice: 'Bizu criado com sucesso!'
     else
       @story.comments.build if @story.comments.blank?
       render :new
@@ -30,8 +30,8 @@ class StoriesController < ApplicationController
   def update
     @story = current_user.stories.find(params[:id])
 
-    if @story.update_attributes edit_story_params
-      redirect_to root_path, :notice => "Bizu alterado com sucesso!"
+    if @story.update(edit_story_params)
+      redirect_to root_path, notice: 'Bizu alterado com sucesso!'
     else
       render :edit
     end
@@ -40,9 +40,9 @@ class StoriesController < ApplicationController
   def destroy
     @story = current_user.stories.find(params[:id])
 
-    notice = @story.destroy ? "Bizu excluído com sucesso!" : "Bizu não pôde ser excluído"
+    notice = @story.destroy ? 'Bizu excluído com sucesso!' : 'Bizu não pôde ser excluído'
 
-    redirect_to root_path, :notice => notice
+    redirect_to root_path, notice: notice
   end
 
   def positive
@@ -60,7 +60,10 @@ class StoriesController < ApplicationController
   end
 
   def new_story_params
-    params.require(:story).permit(:description, :url, :tag_list, :comments_attributes => [:text, :commentable_type, :commentable_id, :author_id])
+    params.require(:story).permit(
+      :description, :url, :tag_list,
+      comments_attributes: %i[text commentable_type commentable_id author_id]
+    )
   end
 
   def edit_story_params

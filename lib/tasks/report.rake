@@ -1,9 +1,11 @@
 namespace :report do
-  task :daily_report => :environment do
+  desc 'Daily report'
+  task daily: :environment do
     Notifier::DailyReport.new.notify_all!
   end
 
-  task :weekly_report => :environment do
+  desc 'Weekly report'
+  task weekly: :environment do
     Notifier::WeeklyReport.new.notify_all!
   end
 end

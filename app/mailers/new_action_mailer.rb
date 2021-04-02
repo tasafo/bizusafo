@@ -1,11 +1,9 @@
-class NewActionMailer < ActionMailer::Base
-  default from: "nao-responda@bizu.tasafo.org"
-
+class NewActionMailer < ApplicationMailer
   def new_story(story, recipients)
     @story = story
     @recipients = recipients
 
-    mail(to: "nao-responda@bizu.tasafo.org", bcc: @recipients, subject: I18n.t("notifications.new_story.subject"))
+    mail(to: "Bizu <nao-responda@#{ENV['HOST_URL']}>", bcc: @recipients, subject: I18n.t("notifications.new_story.subject"))
   end
 
   def new_rating(rater, story, recipient)
@@ -31,6 +29,6 @@ class NewActionMailer < ActionMailer::Base
     @comment = comment
     @recipients = recipients
 
-    mail(to: "nao-responda@bizu.tasafo.org", bcc: @recipients, subject: I18n.t("notifications.new_comment_followed_story.subject"))
+    mail(to: "Bizu <nao-responda@#{ENV['HOST_URL']}>", bcc: @recipients, subject: I18n.t("notifications.new_comment_followed_story.subject"))
   end
 end

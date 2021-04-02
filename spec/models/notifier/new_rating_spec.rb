@@ -14,7 +14,7 @@ describe Notifier::NewRating do
 
     context "when the owner of the commentable does not allows new_comment notifications" do
       it "does not deliver any email" do
-        users(:john).notification_setting.update_attributes(new_rating: false)
+        users(:john).notification_setting.update(new_rating: false)
         expect do
           rate
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
@@ -23,7 +23,7 @@ describe Notifier::NewRating do
 
     context "when the owner of the commentable do not allow every event report notifications" do
       it "does not deliver any email" do
-        users(:john).notification_setting.update_attributes(report: NotificationSetting::DAILY_REPORT)
+        users(:john).notification_setting.update(report: NotificationSetting::DAILY_REPORT)
         expect do
           rate
         end.to change{ActionMailer::Base.deliveries.size}.by(0)

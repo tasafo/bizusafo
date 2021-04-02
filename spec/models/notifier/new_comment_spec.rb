@@ -15,7 +15,7 @@ describe Notifier::NewComment do
 
     context "when the owner of the commentable does not allow new_comment notifications" do
       it "does not deliver any email" do
-        users(:john).notification_setting.update_attributes(new_comment: false)
+        users(:john).notification_setting.update(new_comment: false)
         expect do
           comment
         end.to change{ActionMailer::Base.deliveries.size}.by(0)
@@ -24,7 +24,7 @@ describe Notifier::NewComment do
 
     context "when the owner of the commentable do not allow every event report notifications" do
       it "does not deliver any email" do
-        users(:john).notification_setting.update_attributes(report: NotificationSetting::DAILY_REPORT)
+        users(:john).notification_setting.update(report: NotificationSetting::DAILY_REPORT)
         expect do
           comment
         end.to change{ActionMailer::Base.deliveries.size}.by(0)

@@ -45,10 +45,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  private
-
   def self.update_facebook_user_info(user, auth)
-    user.update_attributes(
+    user.update(
       facebook_image: auth.info.image,
       provider: auth.provider,
       uid: auth.uid,

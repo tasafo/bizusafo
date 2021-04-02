@@ -1,21 +1,18 @@
-dist: bionic
-sudo: false
+os: linux
+dist: focal
 language: ruby
-rvm: 2.6.6
+rvm: 2.7.2
 env:
   global:
   - DB_USER=postgres
   - DB_PASS=
 addons:
-  postgresql: 10
-services:
-- postgresql
+  postgresql: 13
 cache:
   bundler: true
-bundler_args: --without production
 before_install:
-- gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-- gem install bundler -v '< 2'
+- gem install bundler -v='2.1.4'
+- bundle config set deployment 'true'
 before_script:
 - bundle exec rails db:create
 - bundle exec rails db:migrate
@@ -30,7 +27,8 @@ after_success:
 deploy:
   provider: heroku
   app: bizusafo
-  skip_cleanup: true
+  cleanup: true
+  strategy: api
   on:
     branch: master
   api_key:

@@ -28,17 +28,17 @@ pt-BR:
 
   notifications:
     new_rating:
-      subject: "[BizuSafo] Novo voto no Bizu que você compartilhou!"
+      subject: "Novo voto no Bizu que você compartilhou!"
     new_comment:
-      subject: "[BizuSafo] Novo comentário no Bizu que você compartilhou!"
+      subject: "Novo comentário no Bizu que você compartilhou!"
     new_comment_followed_story:
-      subject: "[BizuSafo] Novo comentário no Bizu que você está seguindo!"
+      subject: "Novo comentário no Bizu que você está seguindo!"
     new_story:
-      subject: "[BizuSafo] Novo bizu!"
+      subject: "Novo bizu!"
     daily_report:
-      subject: "[BizuSafo] Novidades do dia!"
+      subject: "Novidades do dia!"
     weekly_report:
-      subject: "[BizuSafo] Novidades da semana!"
+      subject: "Novidades da semana!"
 
   story:
     no_story: "Nenhum Bizuuu aqui!"
