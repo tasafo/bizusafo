@@ -50,8 +50,7 @@ RSpec.configure do |config|
   config.order = :random
 
   ##
-  # Facilita encontrar traduções
-  # esquecidas.
+  # Facilita encontrar traducoes esquecidas.
   ##
   config.before(:all, type: :model) do
     @_i18n_exception_handler = I18n.exception_handler
@@ -73,6 +72,7 @@ RSpec.configure do |config|
   end
 
   Capybara.javascript_driver = :cuprite
+  Capybara.server = :puma, { Silent: true }
 
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
