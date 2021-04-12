@@ -4,6 +4,7 @@ class Notifier::WeeklyReport
 
   def notify_all!(force: false)
     return if !force || Date.current == Date.current.beginning_of_week
+
     ReportMailer.weekly_report(recipients: recipients).deliver_now if recipients.present?
   end
 

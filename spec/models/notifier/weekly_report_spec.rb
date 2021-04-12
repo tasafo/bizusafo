@@ -11,6 +11,7 @@ describe Notifier::WeeklyReport do
     end
 
     before do
+      allow(Date).to receive(:current).and_return(Date.current.end_of_week)
       NotificationSetting.update_all report: NotificationSetting::DAILY_REPORT
       users(:victor).notification_setting.update report: NotificationSetting::WEEKLY_REPORT
     end
