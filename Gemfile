@@ -10,13 +10,14 @@ gem 'uglifier'
 gem 'jquery-rails', '4.3.5'
 gem 'jbuilder'
 
-gem 'devise', '4.7.3'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'devise-i18n'
-gem 'omniauth', '~> 2.0.4'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+
 gem 'acts-as-taggable-on'
 gem 'sprockets', '3.7.2'
 
