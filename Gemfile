@@ -12,7 +12,7 @@ gem 'jbuilder'
 
 gem 'devise', '4.7.3'
 gem 'devise-i18n'
-gem 'omniauth', '~> 1.9.1'
+gem 'omniauth', '~> 2.0.4'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'kaminari'
