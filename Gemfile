@@ -22,7 +22,7 @@ gem 'acts-as-taggable-on'
 gem 'sprockets', '3.7.2'
 
 gem 'pg', '1.2.3'
-gem 'puma', '5.3.0'
+gem 'puma', '5.3.2'
 gem 'webpacker'
 
 group :development do
