@@ -7,7 +7,7 @@ gem 'rails-i18n'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'jquery-rails', '4.3.5'
+gem 'jquery-rails', '4.4.0'
 gem 'jbuilder'
 
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
