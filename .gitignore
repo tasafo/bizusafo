@@ -14,10 +14,8 @@ coverage
 .rvmrc
 .DS_Store
 .ruby-gemset
-.ruby-version
 .env
 start.sh
-cc-test-reporter
 vendor/bundle/
 
 /public/packs

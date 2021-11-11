@@ -1,0 +1,58 @@
+name: Build
+
+on: [push]
+
+env:
+  CI: "true"
+  NODE_VERSION: 16.13.0
+  APP_NAME: bizu
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13.2-alpine
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DB_USER: postgres
+      DB_PASS: postgres
+      DATABASE_HOST: localhost
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby version
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Get npm cache directory path
+      id: npm-cache-dir-path
+      run: echo "::set-output name=dir::$(npm get cache)-${{ env.APP_NAME }}"
+    - uses: actions/cache@v2
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+        key: npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          npm-
+    - name: Build and test
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        bundle exec rails db:test:prepare
+        bundle exec rails spec
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+        CC_TEST_REPORTER_ID: 88aeb5befc237aca41dd7b3d65025474be53470fa0eb358572d17c866d983672
+      with:
+        coverageLocations: ${{github.workspace}}/coverage/coverage.xml:cobertura

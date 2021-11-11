@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.3'
+ruby RUBY_VERSION
 
 gem 'rails', '~> 6.1'
 gem 'rails-i18n'
@@ -22,7 +22,7 @@ gem 'acts-as-taggable-on'
 gem 'sprockets', '3.7.2'
 
 gem 'pg', '1.2.3'
-gem 'puma', '5.4.0'
+gem 'puma', '5.5.2'
 gem 'webpacker'
 
 group :development do
@@ -36,7 +36,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'simplecov', '0.21.2'
+  gem 'simplecov', '0.21.2', require: false
+  gem 'simplecov-cobertura', require: false
   gem 'shoulda-matchers'
   gem 'cuprite'
 end
