@@ -10,7 +10,7 @@ gem 'uglifier'
 gem 'jquery-rails', '4.4.0'
 gem 'jbuilder'
 
-gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'devise', '4.8.1'
 gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
