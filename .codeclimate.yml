@@ -1,20 +1,21 @@
-engines:
+version: "2"
+plugins:
   brakeman:
     enabled: true
   bundler-audit:
     enabled: true
   rubocop:
     enabled: true
+    channel: rubocop-1-23-0
   duplication:
     enabled: true
     config:
       languages:
       - ruby
-ratings:
-  paths:
-  - "app/**/*"
-  - "**.rb"
-exclude_paths:
+exclude_patterns:
+- "**/*.yml"
+- "**/*.js"
+- "**/*.json"
 - app/assets/**/*
 - app/views/**/*
 - bin/**/*
@@ -26,12 +27,10 @@ exclude_paths:
 - spec/**/*
 - tmp/**/*
 - vendor/**/*
-- .codeclimate.yml
 - .env*
 - .gitattributes
 - .gitignore
 - .rspec
-- .rubocop.yml
 - .slugignore
 - Gemfile
 - Gemfile.lock
@@ -39,4 +38,3 @@ exclude_paths:
 - README.md
 - Rakefile
 - config.ru
-- docker-compose.yml
