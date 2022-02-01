@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby RUBY_VERSION
 
 gem 'rails', '~> 6.1'
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 6.0'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'sass-rails'
 gem 'uglifier'
