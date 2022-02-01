@@ -1,7 +1,6 @@
 [![Code Climate](https://codeclimate.com/github/tasafo/bizusafo/badges/gpa.svg)](https://codeclimate.com/github/tasafo/bizusafo)
 [![Test Coverage](https://codeclimate.com/github/tasafo/bizusafo/badges/coverage.svg)](https://codeclimate.com/github/tasafo/bizusafo/coverage)
 [![Build](https://github.com/tasafo/bizusafo/actions/workflows/build.yml/badge.svg)](https://github.com/tasafo/bizusafo/actions/workflows/build.yml)
-[![security](https://hakiri.io/github/tasafo/bizusafo/master.svg)](https://hakiri.io/github/tasafo/bizusafo/master)
 
 # Notícias da Comunidade
 
